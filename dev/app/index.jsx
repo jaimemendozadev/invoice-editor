@@ -1,9 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import AddItem from "./components/additem";
+import Form from "./components/form";
 
-class App extends Component {
-  render() {
-    return <h1>Hello World!</h1>;
-  }
-}
+const App = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route path="/additem" component={AddItem} />
+      <Route path="/" component={Form} />
+    </Switch>
+  </BrowserRouter>
+);
 
 export default App;
