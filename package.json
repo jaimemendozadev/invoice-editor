@@ -11,6 +11,7 @@
     "react-dom": "^16.6.0"
   },
   "scripts": {
+    "lint": "./node_modules/.bin/eslint --fix './index.js' && ./node_modules/.bin/eslint --fix './dev/index.jsx'",
     "dev:start": "nodemon index.js",
     "dev:build": "webpack --mode=development --watch"
   },
@@ -24,10 +25,13 @@
     "babel-loader": "^8.0.4",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "nodemon": "^1.18.5",
+    "prettier": "^1.14.3",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2"
   }
