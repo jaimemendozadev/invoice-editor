@@ -7,6 +7,15 @@ body {
   box-sizing: border-box; }
 
 @media only screen and (max-width: 480px) {
+  .table {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; }
+    .table button {
+      width: 50%;
+      height: 70px;
+      border-radius: 10px;
+      font-size: 1.5em; }
   .cols {
     border: 1px solid pink;
     display: flex;
@@ -20,10 +29,7 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 2em; }
-  .table {
-    display: flex;
-    justify-content: center; } }
+      font-size: 2em; } }
 
 .table {
   border: 1px solid black;

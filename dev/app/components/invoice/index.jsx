@@ -21,6 +21,8 @@ const Invoice = ({ invoiceItems, subtotal, tax, total }) => {
           <div className="header">Total</div>
         </div>
 
+        {invoiceItems.length ? renderLineItems(invoiceItems) : null}
+
         <button>Add Item</button>
       </div>
     </div>

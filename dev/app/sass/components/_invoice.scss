@@ -1,4 +1,16 @@
 @media only screen and (max-width: 480px) {
+  .table {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    button {
+      @include setDimensions(50%, 70px);
+      border-radius: 10px;
+      font-size: 1.5em;
+    }
+  }
+
   .cols {
     border: 1px solid pink;
     display: flex;
@@ -7,19 +19,12 @@
     width: 80%;
 
     .header {
-      width: 70%;
-      height: 70px;
+      @include setDimensions(70%, 70px);
       border: 1px solid grey;
       @include flexCenter;
       font-size: 2em;
     }
   }
-
-  .table {
-    display: flex;
-    justify-content: center;
-  }
-
 
 }
 

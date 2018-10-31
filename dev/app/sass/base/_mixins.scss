@@ -3,3 +3,9 @@
   justify-content: center;
   align-items: center;
 }
+
+
+@mixin setDimensions($width, $height) {
+  width: $width;
+  height: $height;
+}
