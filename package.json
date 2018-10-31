@@ -1,0 +1,28 @@
+{
+  "name": "invoice-editor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "^7.1.2",
+    "express": "^4.16.4",
+    "path": "^0.12.7",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  },
+  "scripts": {
+    "dev:start": "nodemon index.js",
+    "dev:build": "webpack --mode=development --watch"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "nodemon": "^1.18.5",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
