@@ -13,7 +13,8 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint --fix './index.js' && ./node_modules/.bin/eslint --fix './dev/index.jsx'",
     "dev:start": "nodemon index.js",
-    "dev:build": "webpack --mode=development --watch"
+    "dev:build": "webpack --mode=development --watch",
+    "clear": "rm -rfv ./public/*.js"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
