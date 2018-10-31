@@ -7,10 +7,10 @@ const Invoice = ({ invoice }) => (
 
     <div className="table">
       <div className="cols">
-        <div>Item</div>
-        <div>Qty</div>
-        <div>Price</div>
-        <div>Total</div>
+        <div className="header">Item</div>
+        <div className="header">Qty</div>
+        <div className="header">Price</div>
+        <div className="header">Total</div>
       </div>
     </div>
   </div>
