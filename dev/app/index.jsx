@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import store from "./services/redux";
 import AddItem from "./components/additem";
 import Invoice from "./components/invoice";
+import Styles from "./sass/styles.scss";
 
 console.log("store is ", store);
 
