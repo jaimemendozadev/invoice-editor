@@ -1,16 +1,20 @@
-import React, { Component } from "react";
+import React, from "react";
 import { connect } from "react-redux";
 
-class Invoice extends Component {
-  constructor(props) {
-    super(props);
-  }
+const Invoice = ({ invoice }) => (
+  <div>
+    <h1>Invoice</h1>
 
-  render() {
-    console.log("this.props inside invoice ", this.props);
-    return <h1>Invoice</h1>;
-  }
-}
+    <div className="table">
+      <div className="cols">
+        <div>Item</div>
+        <div>Qty</div>
+        <div>Price</div>
+        <div>Total</div>
+      </div>
+    </div>
+  </div>
+);
 
 const mapStateToProps = ({ invoice }) => ({
   invoice
