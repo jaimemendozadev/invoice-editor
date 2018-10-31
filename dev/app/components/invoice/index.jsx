@@ -1,5 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+import LineItem from "../lineitem";
+
+const renderLineItems = invoiceItems => {
+  invoiceItems.map(item => <LineItem item={item} />);
+};
 
 const Invoice = ({ invoice }) => (
   <div>
