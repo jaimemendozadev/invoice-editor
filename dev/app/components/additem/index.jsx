@@ -51,7 +51,6 @@ class AddItem extends Component {
         this.setState({
           qty,
           total: updatedTotal
-          //   errorMsgs: updatedErrors
         });
       }
     }
