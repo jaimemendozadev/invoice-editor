@@ -51,7 +51,7 @@ class AddItem extends Component {
       this.setState({
         total: updatedTotal,
         price: usingPrice.toFixed(2), // Price should be displayed with cents
-        qty: usingQty
+        qty: parseInt(usingQty, 10) // Not necessary, just incase
       });
     }
   };
