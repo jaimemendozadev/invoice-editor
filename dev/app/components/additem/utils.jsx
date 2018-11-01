@@ -1,7 +1,17 @@
+import React from "react";
+
 export const calculateTotal = (qty, price) => {
   const result = qty * price;
 
   return result.toFixed(2); // Return total with cents
+};
+
+export const checkForError = errorMsg => {
+  if (errorMsg.length) {
+    return <div className="error-msg">{errorMsg}</div>;
+  }
+
+  return null;
 };
 
 export const createLineItem = state => {

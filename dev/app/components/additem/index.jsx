@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { calculateTotal, createLineItem } from "./utils";
 import { addLineItem } from "../../services/redux/actions";
+import { calculateTotal, createLineItem, checkForError } from "./utils";
 
 const defaultState = {
   qty: 0,
   price: "0.00",
   total: "0.00",
-  item: "Description"
+  item: "Description",
+  errorMsg: ""
 };
 
 class AddItem extends Component {
@@ -59,17 +60,18 @@ class AddItem extends Component {
       const updatedTotal = calculateTotal(qty, parsedPrice);
       this.setState({
         qty,
-        total: updatedTotal
+        total: updatedTotal,
+        errorMsg: ""
       });
     }
 
     if (formVal === "price") {
       // wait for user to set price, then fix price onBlur
-      this.setState({ price: evt.target.value });
+      this.setState({ price: evt.target.value, errorMsg: "" });
     }
 
     if (formVal === "item") {
-      this.setState({ item: evt.target.value });
+      this.setState({ item: evt.target.value, errorMsg: "" });
     }
   };
 
@@ -83,7 +85,7 @@ class AddItem extends Component {
   };
 
   render() {
-    const { item, qty, price, total } = this.state;
+    const { item, qty, price, total, errorMsg } = this.state;
 
     console.log("this.state inside AddItem ", this.state);
     return (
@@ -134,6 +136,8 @@ class AddItem extends Component {
         <button className="add-item-btn" type="submit">
           Add Line Item
         </button>
+
+        {checkForError(errorMsg)}
       </form>
     );
   }
