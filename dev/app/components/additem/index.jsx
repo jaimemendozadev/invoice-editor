@@ -49,8 +49,8 @@ class AddItem extends Component {
       <form>
         <h1>Add an Item</h1>
 
-        <div>
-          <label>Quantity:</label>
+        <div className="form-row">
+          <div className="form-label">Quantity:</div>
           <input
             type="text"
             value={`${qty}`}
@@ -60,8 +60,8 @@ class AddItem extends Component {
           />
         </div>
 
-        <div>
-          <label>Price:</label>
+        <div className="form-row">
+          <div className="form-label">Price:</div>
           <input
             type="text"
             value={price}
@@ -70,7 +70,11 @@ class AddItem extends Component {
             onChange={evt => this.handleChange(evt, "price")}
           />
         </div>
-        <div>{`Total ${total}`}</div>
+
+        <div className="form-row">
+          <div className="form-label">Total</div>
+          <div>{total}</div>
+        </div>
       </form>
     );
   }
