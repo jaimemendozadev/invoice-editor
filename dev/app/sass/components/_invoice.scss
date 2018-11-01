@@ -1,35 +1,40 @@
 @media only screen and (max-width: 480px) {
-  .table {
+
+  .ledger-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    border: 5px solid purple;
+    margin-bottom: 2em;
+
+    .cols {
+      border: 1px solid pink;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+  
+      .header {
+        @include setDimensions(70%, 70px);
+        border: 1px solid grey;
+        @include flexCenter;
+        font-size: 2em;
+      }
+    }
 
     button {
       @include setDimensions(50%, 70px);
       border-radius: 10px;
       font-size: 1.5em;
-    }
+    }    
   }
-
-  .cols {
-    border: 1px solid pink;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80%;
-
-    .header {
-      @include setDimensions(70%, 70px);
-      border: 1px solid grey;
-      @include flexCenter;
-      font-size: 2em;
-    }
-  }
-
 }
 
 
-.table {
-  border: 1px solid black;
-  min-height: 100vh;
-}
+
+
+
+// .table {
+//   border: 1px solid black;
+//   min-height: 100vh;
+// }

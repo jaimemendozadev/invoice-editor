@@ -7,31 +7,40 @@ body {
   box-sizing: border-box; }
 
 @media only screen and (max-width: 480px) {
-  .table {
+  .ledger-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; }
-    .table button {
+    flex-wrap: wrap;
+    border: 5px solid purple;
+    margin-bottom: 2em; }
+    .ledger-container .cols {
+      border: 1px solid pink;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%; }
+      .ledger-container .cols .header {
+        width: 70%;
+        height: 70px;
+        border: 1px solid grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em; }
+    .ledger-container button {
       width: 50%;
       height: 70px;
       border-radius: 10px;
-      font-size: 1.5em; }
-  .cols {
-    border: 1px solid pink;
+      font-size: 1.5em; } }
+
+.total {
+  width: 80%;
+  border: 1px solid green;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; }
+  .total .total-figures {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 80%; }
-    .cols .header {
-      width: 70%;
-      height: 70px;
-      border: 1px solid grey;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2em; } }
-
-.table {
-  border: 1px solid black;
-  min-height: 100vh; }
+    align-items: flex-end; }
 
