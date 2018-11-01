@@ -3,7 +3,7 @@ import React from "react";
 export const calculateTotal = (qty, price) => {
   const result = qty * price;
 
-  return result.toFixed(2); // Return total with cents
+  return result.toFixed(2); // Returns string total with cents
 };
 
 export const checkForErrors = errorMsgs => {

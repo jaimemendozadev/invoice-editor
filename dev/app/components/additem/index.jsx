@@ -36,7 +36,8 @@ class AddItem extends Component {
         this.setState({ [formVal]: 0 });
       }
 
-      const parsedQty = parseInt(qty, 10); // get parsed qty
+      // Check if parsedQty is a num
+      const parsedQty = parseInt(qty, 10);
 
       if (Number.isNaN(parsedQty)) {
         const newErrors = Object.assign({}, errorMsgs, {
@@ -78,22 +79,10 @@ class AddItem extends Component {
   };
 
   handleChange = (evt, formVal) => {
-    if (formVal === "qty") {
-      // Wait for user to set qty, then do checking in onBlur
-      this.setState({
-        qty: evt.target.value,
-        errorMsgs: {}
-      });
-    }
-
-    if (formVal === "price") {
-      // Wait for user to set price, then fix price in onBlur
-      this.setState({ price: evt.target.value, errorMsgs: {} });
-    }
-
-    if (formVal === "item") {
-      this.setState({ item: evt.target.value, errorMsgs: {} });
-    }
+    this.setState({
+      [formVal]: evt.target.value,
+      errorMsgs: {}
+    });
   };
 
   handleSubmit = evt => {
