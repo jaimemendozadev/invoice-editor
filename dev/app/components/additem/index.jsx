@@ -46,17 +46,12 @@ class AddItem extends Component {
         this.setState({ errorMsgs: newErrors, qty: 0 });
       } else {
         const parsedPrice = parseFloat(price); // get price floating num
-        const updatedErrors = Object.assign({}, errorMsgs);
-
-        if (updatedErrors.invalidQty) {
-          delete updatedErrors.invalidQty;
-        }
 
         const updatedTotal = calculateTotal(qty, parsedPrice);
         this.setState({
           qty,
-          total: updatedTotal,
-          errorMsgs: updatedErrors
+          total: updatedTotal
+          //   errorMsgs: updatedErrors
         });
       }
     }
@@ -64,8 +59,16 @@ class AddItem extends Component {
     if (formVal === "price") {
       if (price.length === 0) {
         this.setState({ [formVal]: "0.00" });
+      }
+
+      if (Number.isNaN(parseFloat(price))) {
+        const newErrors = Object.assign({}, errorMsgs, {
+          invalidPrice: "Please enter a valid price."
+        });
+
+        this.setState({ errorMsgs: newErrors, price: "0.00", total: "0.00" });
       } else {
-        // convert price to float, then to floating point num
+        // Try converting price to float, then to floating point num
         const convertedPrice = parseFloat(price).toFixed(2);
 
         const updatedTotal = calculateTotal(qty, convertedPrice);
@@ -79,17 +82,18 @@ class AddItem extends Component {
     if (formVal === "qty") {
       // Wait for user to set qty, then do checking in onBlur
       this.setState({
-        qty: evt.target.value
+        qty: evt.target.value,
+        errorMsgs: {}
       });
     }
 
     if (formVal === "price") {
       // Wait for user to set price, then fix price in onBlur
-      this.setState({ price: evt.target.value, errorMsgs: "" });
+      this.setState({ price: evt.target.value, errorMsgs: {} });
     }
 
     if (formVal === "item") {
-      this.setState({ item: evt.target.value, errorMsgs: "" });
+      this.setState({ item: evt.target.value, errorMsgs: {} });
     }
   };
 
