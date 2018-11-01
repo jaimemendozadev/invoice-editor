@@ -1,7 +1,7 @@
 export const calculateTotal = (qty, price) => {
   const result = qty * price;
 
-  return result.toFixed(2);
+  return result.toFixed(2); // return total with cents
 };
 
 export const createLineItem = state => {

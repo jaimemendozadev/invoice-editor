@@ -11,16 +11,6 @@ const defaultState = {
   item: "Description"
 };
 
-/*
- // item, qty, price, total
-
- item: PropTypes.string,
- qty: PropTypes.number,
- price: PropTypes.string,
- total: PropTypes.string
-
-*/
-
 class AddItem extends Component {
   constructor(props) {
     super(props);
@@ -49,6 +39,13 @@ class AddItem extends Component {
     if (formVal === "price") {
       if (price.length === 0) {
         this.setState({ [formVal]: "0.00" });
+      } else {
+        // convert price to float, then to floating point num
+        const convertedPrice = parseFloat(price).toFixed(2);
+
+        const updatedTotal = calculateTotal(qty, convertedPrice);
+
+        this.setState({ total: updatedTotal, price: convertedPrice });
       }
     }
   };
@@ -56,8 +53,8 @@ class AddItem extends Component {
   handleChange = (evt, formVal) => {
     if (formVal === "qty") {
       const { price } = this.state;
-      const parsedPrice = parseFloat(price, 10);
-      const qty = parseInt(evt.target.value, 10);
+      const parsedPrice = parseFloat(price); // get price floating num
+      const qty = parseInt(evt.target.value, 10); // get parsed qty
 
       const updatedTotal = calculateTotal(qty, parsedPrice);
       this.setState({
@@ -67,12 +64,8 @@ class AddItem extends Component {
     }
 
     if (formVal === "price") {
-      const { qty } = this.state;
-      const updatedPrice = parseFloat(evt.target.value, 10);
-
-      const updatedTotal = calculateTotal(qty, updatedPrice);
-
-      this.setState({ price: updatedPrice.toFixed(2), total: updatedTotal });
+      // wait for user to set price, then fix price onBlur
+      this.setState({ price: evt.target.value });
     }
 
     if (formVal === "item") {
