@@ -13,7 +13,9 @@ class AddItem extends Component {
     this.state = defaultState;
   }
 
-  handleFocus = formVal => {};
+  handleFocus = formVal => {
+    this.setState({ [formVal]: "" });
+  };
 
   handleBlur = formVal => {};
 
@@ -38,8 +40,8 @@ class AddItem extends Component {
           <label>Quantity:</label>
           <input
             type="text"
-            value={qty}
-            onFocus={this.handleFocus}
+            value={`${qty}`}
+            onFocus={() => this.handleFocus("qty")}
             onBlur={this.handleBlur}
             onChange={evt => this.handleChange(evt, "qty")}
           />
@@ -50,7 +52,7 @@ class AddItem extends Component {
           <input
             type="text"
             value={price}
-            onFocus={this.handleFocus}
+            onFocus={() => this.handleFocus("price")}
             onBlur={this.handleBlur}
             onChange={evt => this.handleChange(evt, "price")}
           />
