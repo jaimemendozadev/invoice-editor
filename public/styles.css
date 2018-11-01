@@ -27,11 +27,17 @@ body {
         justify-content: center;
         align-items: center;
         font-size: 2em; }
-    .ledger-container button {
+    .ledger-container .additem-btn {
       width: 50%;
       height: 70px;
       border-radius: 10px;
-      font-size: 1.5em; } }
+      font-size: 1.5em; }
+      .ledger-container .additem-btn a:link,
+      .ledger-container .additem-btn a:visited,
+      .ledger-container .additem-btn a:hover,
+      .ledger-container .additem-btn a:active {
+        text-decoration: none;
+        color: black; } }
 
 .total {
   width: 80%;

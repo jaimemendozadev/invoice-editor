@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import LineItem from "../lineitem";
 import Total from "./Total";
@@ -25,7 +26,9 @@ const Invoice = ({ invoiceItems, subtotal, tax, taxRate, total }) => {
 
           {invoiceItems.length ? renderLineItems(invoiceItems) : null}
 
-          <button>Add Item</button>
+          <button className="additem-btn">
+            <Link to="/additem">Add Item</Link>
+          </button>
         </div>
 
         <Total subtotal={subtotal} tax={tax} taxRate={taxRate} total={total} />
