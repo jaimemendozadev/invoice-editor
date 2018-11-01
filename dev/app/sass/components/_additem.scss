@@ -1,6 +1,7 @@
 @media only screen and (max-width: 480px) {
   form {
     border: 1px solid salmon;
+    min-height: 110vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -41,9 +42,13 @@
   font-size: 1.5em;
   border-radius: 10px;
   border: 1px solid grey;
+  margin-bottom: 1em;
 }
 
 .error-msg {
   color: red;
   font-size: 1.5em;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 2px 2px 10px red;
 }
