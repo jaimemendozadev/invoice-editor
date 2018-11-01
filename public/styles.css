@@ -27,6 +27,12 @@ body {
     .form-row input {
       font-size: 1em; } }
 
+.add-item-btn {
+  height: 50px;
+  font-size: 1.5em;
+  border-radius: 10px;
+  border: 1px solid grey; }
+
 @media only screen and (max-width: 480px) {
   .ledger-container {
     display: flex;

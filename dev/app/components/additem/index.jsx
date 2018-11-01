@@ -4,7 +4,8 @@ import { calculateTotal } from "./utils";
 const defaultState = {
   qty: 0,
   price: "0.00",
-  total: "0.00"
+  total: "0.00",
+  desc: "Line Item Name"
 };
 
 class AddItem extends Component {
@@ -43,10 +44,14 @@ class AddItem extends Component {
     }
   };
 
+  handleSubmit = evt => {
+    evt.preventDefault();
+  };
+
   render() {
     const { qty, price, total } = this.state;
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <h1>Add an Item</h1>
 
         <div className="form-row">
@@ -75,6 +80,10 @@ class AddItem extends Component {
           <div className="form-label">Total</div>
           <div>{total}</div>
         </div>
+
+        <button className="add-item-btn" type="submit">
+          Add Line Item
+        </button>
       </form>
     );
   }
