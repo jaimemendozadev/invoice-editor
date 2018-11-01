@@ -22,8 +22,38 @@ class AddItem extends Component {
     this.setState({ [formVal]: "" });
   };
 
+  checkNumberInput = (numToCheck, inputType, stateResets) => {
+    const { qty, price } = this.state;
+
+    const inputErrors = {
+      qty: {
+        invalidQty: "Please enter a valid quantity."
+      },
+      price: {
+        invalidPrice: "Please enter a valid price."
+      }
+    };
+
+    if (Number.isNaN(numToCheck)) {
+      const newResetState = Object.assign({}, stateResets, {
+        errorMsgs: inputErrors[inputType]
+      });
+
+      this.setState(newResetState);
+    } else {
+      // Get the price & quantity
+      const usingPrice = inputType === "price" ? numToCheck : price;
+      const usingQty = inputType === "qty" ? numToCheck : qty;
+
+      // Get the updatedTotal
+      const updatedTotal = calculateTotal(usingQty, usingPrice);
+
+      this.setState({ total: updatedTotal, price: usingPrice, qty: usingQty });
+    }
+  };
+
   handleBlur = formVal => {
-    const { item, qty, price, errorMsgs } = this.state;
+    const { item, qty, price } = this.state;
 
     if (formVal === "item") {
       if (item.length === 0) {
@@ -36,24 +66,10 @@ class AddItem extends Component {
         this.setState({ [formVal]: 0 });
       }
 
-      // Check if parsedQty is a num
-      const parsedQty = parseInt(qty, 10);
+      const numToCheck = parseInt(qty, 10);
+      const stateResets = { qty: 0 };
 
-      if (Number.isNaN(parsedQty)) {
-        const newErrors = Object.assign({}, errorMsgs, {
-          invalidQty: "Please enter a valid quantity."
-        });
-
-        this.setState({ errorMsgs: newErrors, qty: 0 });
-      } else {
-        const parsedPrice = parseFloat(price); // get price floating num
-
-        const updatedTotal = calculateTotal(qty, parsedPrice);
-        this.setState({
-          qty,
-          total: updatedTotal
-        });
-      }
+      this.checkNumberInput(numToCheck, "qty", stateResets);
     }
 
     if (formVal === "price") {
@@ -61,20 +77,10 @@ class AddItem extends Component {
         this.setState({ [formVal]: "0.00" });
       }
 
-      if (Number.isNaN(parseFloat(price))) {
-        const newErrors = Object.assign({}, errorMsgs, {
-          invalidPrice: "Please enter a valid price."
-        });
+      const numToCheck = parseFloat(price);
+      const stateResets = { price: "0.00", total: "0.00" };
 
-        this.setState({ errorMsgs: newErrors, price: "0.00", total: "0.00" });
-      } else {
-        // Try converting price to float, then to floating point num
-        const convertedPrice = parseFloat(price).toFixed(2);
-
-        const updatedTotal = calculateTotal(qty, convertedPrice);
-
-        this.setState({ total: updatedTotal, price: convertedPrice });
-      }
+      this.checkNumberInput(numToCheck, "price", stateResets);
     }
   };
 
