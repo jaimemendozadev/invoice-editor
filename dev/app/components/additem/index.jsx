@@ -48,7 +48,11 @@ class AddItem extends Component {
       // Get the updatedTotal
       const updatedTotal = calculateTotal(usingQty, usingPrice);
 
-      this.setState({ total: updatedTotal, price: usingPrice, qty: usingQty });
+      this.setState({
+        total: updatedTotal,
+        price: usingPrice.toFixed(2), // Price should be displayed with cents
+        qty: usingQty
+      });
     }
   };
 
