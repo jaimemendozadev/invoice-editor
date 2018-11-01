@@ -5,9 +5,10 @@ import { connect } from "react-redux";
 import LineItem from "../lineitem";
 import Total from "./Total";
 
-const renderLineItems = (invoiceItems, invoiceItemKeys) => {
-  invoiceItemKeys.map(key => <LineItem item={invoiceItems[key]} />);
-};
+const renderLineItems = (invoiceItems, invoiceItemKeys) =>
+  invoiceItemKeys.map(key => (
+    <LineItem key={key} lineItem={invoiceItems[key]} />
+  ));
 
 const checkForLineItems = invoiceItems => {
   const invoiceItemKeys = Object.keys(invoiceItems);

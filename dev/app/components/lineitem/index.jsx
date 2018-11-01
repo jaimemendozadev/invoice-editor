@@ -1,11 +1,11 @@
 import React from "react";
 
-const LineItem = ({ item }) => (
+const LineItem = ({ lineItem }) => (
   <div className="line-item">
-    <div>{item}</div>
-    <div>{qty}</div>
-    <div>{price}</div>
-    <div>{total}</div>
+    <div>{lineItem.item}</div>
+    <div>{lineItem.qty}</div>
+    <div>{lineItem.price}</div>
+    <div>{lineItem.total}</div>
   </div>
 );
 
