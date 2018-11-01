@@ -27,6 +27,10 @@ body {
         justify-content: center;
         align-items: center;
         font-size: 2em; }
+    .ledger-container .line-items-container {
+      width: 80%;
+      margin: 1em 0;
+      border: 1px solid gold; }
     .ledger-container .additem-btn {
       width: 50%;
       height: 70px;

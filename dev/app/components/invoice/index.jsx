@@ -9,10 +9,15 @@ const renderLineItems = invoiceItems => {
   invoiceItems.map(item => <LineItem item={item} />);
 };
 
-const Invoice = ({ invoiceItems, subtotal, tax, taxRate, total }) => {
-  console.log("invoiceItems is ", invoiceItems);
+const checkForLineItems = invoiceItems => {
+  if (invoiceItems.length) {
+    return renderLineItems(invoiceItems);
+  }
 
-  return (
+  return "You have no Line Items";
+};
+
+const Invoice = ({ invoiceItems, subtotal, tax, taxRate, total }) => (
     <div>
       <h1>Invoice</h1>
       <div className="invoice-container">
@@ -24,7 +29,9 @@ const Invoice = ({ invoiceItems, subtotal, tax, taxRate, total }) => {
             <div className="header">Total</div>
           </div>
 
-          {invoiceItems.length ? renderLineItems(invoiceItems) : null}
+          <div className="line-items-container">
+            {checkForLineItems(invoiceItems)}
+          </div>
 
           <button className="additem-btn">
             <Link to="/additem">Add Item</Link>
@@ -35,7 +42,6 @@ const Invoice = ({ invoiceItems, subtotal, tax, taxRate, total }) => {
       </div>
     </div>
   );
-};
 
 const mapStateToProps = ({ invoice }) => ({
   invoiceItems: invoice.invoiceItems,
