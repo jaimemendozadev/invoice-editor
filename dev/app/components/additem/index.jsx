@@ -1,12 +1,24 @@
 import React, { Component } from "react";
-import { calculateTotal } from "./utils";
+import { connect } from "redux";
+import { calculateTotal, createLineItem } from "./utils";
+import { addLineItem } from "../../services/redux/actions";
 
 const defaultState = {
   qty: 0,
   price: "0.00",
   total: "0.00",
-  desc: "Line Item Name"
+  item: "Description"
 };
+
+/*
+ // item, qty, price, total
+
+ item: PropTypes.string,
+ qty: PropTypes.number,
+ price: PropTypes.string,
+ total: PropTypes.string
+
+*/
 
 class AddItem extends Component {
   constructor(props) {
@@ -19,11 +31,11 @@ class AddItem extends Component {
   };
 
   handleBlur = formVal => {
-    const { desc, qty, price } = this.state;
+    const { item, qty, price } = this.state;
 
-    if (formVal === "desc") {
-      if (desc.length === 0) {
-        this.setState({ [formVal]: "Line Item Name" });
+    if (formVal === "item") {
+      if (item.length === 0) {
+        this.setState({ [formVal]: "Description" });
       }
     }
 
@@ -53,23 +65,28 @@ class AddItem extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
+    const { AddLineItem } = this.props;
+
+    const payload = createLineItem(this.state);
+
+    AddLineItem(payload);
   };
 
   render() {
-    const { desc, qty, price, total } = this.state;
+    const { item, qty, price, total } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <h1>Add an Item</h1>
 
         <div className="form-row">
-          <div className="form-label">Description:</div>
+          <div className="form-label">Item:</div>
           <input
             className="longer-input"
             type="text"
-            value={`${desc}`}
-            onFocus={() => this.handleFocus("desc")}
-            onBlur={() => this.handleBlur("desc")}
-            onChange={evt => this.handleChange(evt, "desc")}
+            value={`${item}`}
+            onFocus={() => this.handleFocus("item")}
+            onBlur={() => this.handleBlur("item")}
+            onChange={evt => this.handleChange(evt, "item")}
           />
         </div>
 
@@ -110,4 +127,11 @@ class AddItem extends Component {
   }
 }
 
-export default AddItem;
+AddItem.propTypes = {
+  AddLineItem: PropTypes.func.isRequired
+};
+
+export default connect(
+  null,
+  { AddLineItem: addLineItem }
+)(AddItem);
