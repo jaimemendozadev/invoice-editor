@@ -1,5 +1,5 @@
-export const calculateTotal = (quantity, price) => {
-  const result = quantity * price;
+export const calculateTotal = (qty, price) => {
+  const result = qty * price;
 
   return result.toFixed(2);
 };

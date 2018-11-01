@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { connect } from "redux";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { calculateTotal, createLineItem } from "./utils";
 import { addLineItem } from "../../services/redux/actions";
 
@@ -54,12 +55,28 @@ class AddItem extends Component {
 
   handleChange = (evt, formVal) => {
     if (formVal === "qty") {
+      const { price } = this.state;
+      const parsedPrice = parseFloat(price, 10);
       const qty = parseInt(evt.target.value, 10);
+
+      const updatedTotal = calculateTotal(qty, parsedPrice);
       this.setState({
-        qty
+        qty,
+        total: updatedTotal
       });
-    } else {
-      this.setState({ price: evt.target.value });
+    }
+
+    if (formVal === "price") {
+      const { qty } = this.state;
+      const updatedPrice = parseFloat(evt.target.value, 10);
+
+      const updatedTotal = calculateTotal(qty, updatedPrice);
+
+      this.setState({ price: updatedPrice.toFixed(2), total: updatedTotal });
+    }
+
+    if (formVal === "item") {
+      this.setState({ item: evt.target.value });
     }
   };
 
@@ -74,6 +91,8 @@ class AddItem extends Component {
 
   render() {
     const { item, qty, price, total } = this.state;
+
+    console.log("this.state inside AddItem ", this.state);
     return (
       <form onSubmit={this.handleSubmit}>
         <h1>Add an Item</h1>
