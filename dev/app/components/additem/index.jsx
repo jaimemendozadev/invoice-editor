@@ -17,7 +17,20 @@ class AddItem extends Component {
     this.setState({ [formVal]: "" });
   };
 
-  handleBlur = formVal => {};
+  handleBlur = formVal => {
+    const { qty, price } = this.state;
+    if (formVal === "qty") {
+      if (qty.length === 0) {
+        this.setState({ [formVal]: 0 });
+      }
+    }
+
+    if (formVal === "price") {
+      if (price.length === 0) {
+        this.setState({ [formVal]: "0.00" });
+      }
+    }
+  };
 
   handleChange = (evt, formVal) => {
     if (formVal === "qty") {
@@ -42,7 +55,7 @@ class AddItem extends Component {
             type="text"
             value={`${qty}`}
             onFocus={() => this.handleFocus("qty")}
-            onBlur={this.handleBlur}
+            onBlur={() => this.handleBlur("qty")}
             onChange={evt => this.handleChange(evt, "qty")}
           />
         </div>
@@ -53,7 +66,7 @@ class AddItem extends Component {
             type="text"
             value={price}
             onFocus={() => this.handleFocus("price")}
-            onBlur={this.handleBlur}
+            onBlur={() => this.handleBlur("price")}
             onChange={evt => this.handleChange(evt, "price")}
           />
         </div>
