@@ -23,6 +23,13 @@
 
     input {
       font-size: 1em;
+      &.longer-input {
+        width: 100%;
+      }
+
+      &.shorter-input {
+        width: 35%;
+      }
     }
   }
 }

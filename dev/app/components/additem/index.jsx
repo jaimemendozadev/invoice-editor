@@ -19,7 +19,14 @@ class AddItem extends Component {
   };
 
   handleBlur = formVal => {
-    const { qty, price } = this.state;
+    const { desc, qty, price } = this.state;
+
+    if (formVal === "desc") {
+      if (desc.length === 0) {
+        this.setState({ [formVal]: "Line Item Name" });
+      }
+    }
+
     if (formVal === "qty") {
       if (qty.length === 0) {
         this.setState({ [formVal]: 0 });
@@ -49,14 +56,27 @@ class AddItem extends Component {
   };
 
   render() {
-    const { qty, price, total } = this.state;
+    const { desc, qty, price, total } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <h1>Add an Item</h1>
 
         <div className="form-row">
+          <div className="form-label">Description:</div>
+          <input
+            className="longer-input"
+            type="text"
+            value={`${desc}`}
+            onFocus={() => this.handleFocus("desc")}
+            onBlur={() => this.handleBlur("desc")}
+            onChange={evt => this.handleChange(evt, "desc")}
+          />
+        </div>
+
+        <div className="form-row">
           <div className="form-label">Quantity:</div>
           <input
+            className="shorter-input"
             type="text"
             value={`${qty}`}
             onFocus={() => this.handleFocus("qty")}
@@ -68,6 +88,7 @@ class AddItem extends Component {
         <div className="form-row">
           <div className="form-label">Price:</div>
           <input
+            className="shorter-input"
             type="text"
             value={price}
             onFocus={() => this.handleFocus("price")}

@@ -25,7 +25,11 @@ body {
     .form-row .form-label {
       width: 100%; }
     .form-row input {
-      font-size: 1em; } }
+      font-size: 1em; }
+      .form-row input.longer-input {
+        width: 100%; }
+      .form-row input.shorter-input {
+        width: 35%; } }
 
 .add-item-btn {
   height: 50px;
