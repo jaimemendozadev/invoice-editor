@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addLineItem } from "../../services/redux/actions";
-import { calculateTotal, createLineItem, checkForError } from "./utils";
+import { calculateTotal, createLineItem, checkForErrors } from "./utils";
 
 const defaultState = {
   qty: 0,
   price: "0.00",
   total: "0.00",
   item: "Description",
-  errorMsg: ""
+  errorMsgs: {}
 };
 
 class AddItem extends Component {
@@ -23,7 +23,7 @@ class AddItem extends Component {
   };
 
   handleBlur = formVal => {
-    const { item, qty, price } = this.state;
+    const { item, qty, price, errorMsgs } = this.state;
 
     if (formVal === "item") {
       if (item.length === 0) {
@@ -34,6 +34,30 @@ class AddItem extends Component {
     if (formVal === "qty") {
       if (qty.length === 0) {
         this.setState({ [formVal]: 0 });
+      }
+
+      const parsedQty = parseInt(qty, 10); // get parsed qty
+
+      if (Number.isNaN(parsedQty)) {
+        const newErrors = Object.assign({}, errorMsgs, {
+          invalidQty: "Please enter a valid quantity."
+        });
+
+        this.setState({ errorMsgs: newErrors, qty: 0 });
+      } else {
+        const parsedPrice = parseFloat(price); // get price floating num
+        const updatedErrors = Object.assign({}, errorMsgs);
+
+        if (updatedErrors.invalidQty) {
+          delete updatedErrors.invalidQty;
+        }
+
+        const updatedTotal = calculateTotal(qty, parsedPrice);
+        this.setState({
+          qty,
+          total: updatedTotal,
+          errorMsgs: updatedErrors
+        });
       }
     }
 
@@ -53,25 +77,19 @@ class AddItem extends Component {
 
   handleChange = (evt, formVal) => {
     if (formVal === "qty") {
-      const { price } = this.state;
-      const parsedPrice = parseFloat(price); // get price floating num
-      const qty = parseInt(evt.target.value, 10); // get parsed qty
-
-      const updatedTotal = calculateTotal(qty, parsedPrice);
+      // Wait for user to set qty, then do checking in onBlur
       this.setState({
-        qty,
-        total: updatedTotal,
-        errorMsg: ""
+        qty: evt.target.value
       });
     }
 
     if (formVal === "price") {
-      // wait for user to set price, then fix price onBlur
-      this.setState({ price: evt.target.value, errorMsg: "" });
+      // Wait for user to set price, then fix price in onBlur
+      this.setState({ price: evt.target.value, errorMsgs: "" });
     }
 
     if (formVal === "item") {
-      this.setState({ item: evt.target.value, errorMsg: "" });
+      this.setState({ item: evt.target.value, errorMsgs: "" });
     }
   };
 
@@ -85,7 +103,7 @@ class AddItem extends Component {
   };
 
   render() {
-    const { item, qty, price, total, errorMsg } = this.state;
+    const { item, qty, price, total, errorMsgs } = this.state;
 
     console.log("this.state inside AddItem ", this.state);
     return (
@@ -137,7 +155,7 @@ class AddItem extends Component {
           Add Line Item
         </button>
 
-        {checkForError(errorMsg)}
+        {checkForErrors(errorMsgs)}
       </form>
     );
   }

@@ -6,9 +6,17 @@ export const calculateTotal = (qty, price) => {
   return result.toFixed(2); // Return total with cents
 };
 
-export const checkForError = errorMsg => {
-  if (errorMsg.length) {
-    return <div className="error-msg">{errorMsg}</div>;
+export const checkForErrors = errorMsgs => {
+  const errorKeys = Object.keys(errorMsgs);
+
+  console.log("errorKeys ", errorKeys);
+
+  if (errorKeys.length) {
+    return errorKeys.map((errorKey, idx) => (
+      <div key={`${errorKey}-${idx}`} className="error-msg">
+        {errorMsgs[errorKey]}
+      </div>
+    ));
   }
 
   return null;
