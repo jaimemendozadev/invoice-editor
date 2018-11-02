@@ -49,6 +49,19 @@ class AddItem extends Component {
     }
   };
 
+  checkItemInput = (inputType, callback) => {
+    const { item, errorMsgs } = this.state;
+    if (item === "Description") {
+      const newError = Object.assign({}, errorMsgs, {
+        errorMsgs: inputErrors[inputType]
+      });
+
+      this.setState(newError);
+    } else {
+      callback();
+    }
+  };
+
   handleBlur = formVal => {
     const { item, qty, price } = this.state;
 
@@ -94,7 +107,9 @@ class AddItem extends Component {
 
     const payload = createLineItem(this.state);
 
-    AddLineItem(payload);
+    // this.checkItemInput performs final payload check
+    // before firing Redux action
+    this.checkItemInput("item", () => AddLineItem(payload));
   };
 
   render() {

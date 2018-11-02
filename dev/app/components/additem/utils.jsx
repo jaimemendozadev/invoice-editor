@@ -14,6 +14,9 @@ export const inputErrors = {
   },
   price: {
     invalidPrice: "Please enter a valid price."
+  },
+  item: {
+    invalidItem: "Please enter a valid item description."
   }
 };
 
