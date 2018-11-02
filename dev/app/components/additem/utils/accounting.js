@@ -12,12 +12,12 @@ export const calculateTotal = (qty, price) => {
   return result.toFixed(2); // Returns string total with cents
 };
 
-export const calculateSubtotal = (newItemTotal, grandTotal) => {
-  // Take Redux grandTotal and newItemTotal
+export const calculateUpdatedSubtotal = (newItemTotal, currentSubTotal) => {
+  // Take Redux currentSubTotal and newItemTotal
   // Convert inputs to decimals
 
   const baseSubtotal =
-    convertToDecimals(grandTotal) + convertToDecimals(newItemTotal);
+    convertToDecimals(currentSubTotal) + convertToDecimals(newItemTotal);
 
   // Return string total with cents
   return baseSubtotal.toFixed(2);
@@ -29,13 +29,13 @@ export const calculateSalesTax = (taxPercentage, subTotal) => {
 
   baseSalesTax = taxRate * baseSalesTax;
 
-  // Return string total with cents
+  // Return string total with cents, toFixed will round
   return baseSalesTax.toFixed(2);
 };
 
 export const calculateGrandTotal = (subTotal, salesTax) => {
   const grandTotal = subTotal + salesTax;
 
-  // Return string total with cents
+  // Return string total with cents, toFixed will round
   return grandTotal.toFixed(2);
 };

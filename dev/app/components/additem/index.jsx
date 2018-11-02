@@ -53,13 +53,13 @@ class AddItem extends Component {
 
   performFinalCheck = callback => {
     const { item, qty, price, total } = this.state;
-    const { taxPercentage, subtotal, tax, grand_total } = this.props;
+    const { taxPercentage, subtotal } = this.props;
 
     const checkResult = checkForFormErrors(qty, price, item);
 
     if (checkResult === false) {
       const invoicePayload = createLineItem(this.state);
-      const totalPayload = prepGrandTotal(total, grand_total, taxPercentage);
+      const totalPayload = prepGrandTotal(total, subtotal, taxPercentage);
 
       const reduxPayload = { invoice: invoicePayload, total: totalPayload };
 
@@ -181,13 +181,13 @@ AddItem.propTypes = {
   AddLineItem: PropTypes.func.isRequired,
   taxPercentage: PropTypes.number.isRequired,
   subtotal: PropTypes.string.isRequired,
-  tax: PropTypes.string.isRequired,
+  salesTax: PropTypes.string.isRequired,
   grand_total: PropTypes.string.isRequired
 };
 
 const mapStateToProps = ({ total }) => ({
   subtotal: total.subtotal,
-  tax: total.tax,
+  salesTax: total.salesTax,
   grand_total: total.total,
   taxPercentage: total.taxPercentage
 });

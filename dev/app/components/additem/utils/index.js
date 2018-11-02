@@ -1,7 +1,7 @@
 import {
   convertToDecimals,
   calculateTotal,
-  calculateSubtotal,
+  calculateUpdatedSubtotal,
   calculateSalesTax,
   calculateGrandTotal
 } from "./accounting";
@@ -9,7 +9,7 @@ import {
 export {
   convertToDecimals,
   calculateTotal,
-  calculateSubtotal,
+  calculateUpdatedSubtotal,
   calculateSalesTax,
   calculateGrandTotal
 };
@@ -74,10 +74,10 @@ export const checkForFormErrors = (qty, price, item) => {
   return false;
 };
 
-export const prepGrandTotal = (itemTotal, grandTotal, taxPercentage) => {
+export const prepGrandTotal = (itemTotal, currentSubtotal, taxPercentage) => {
   // Returned strings get convertedToDecimals when passed as args
 
-  const subTotal = calculateSubtotal(itemTotal, grandTotal);
+  const subTotal = calculateUpdatedSubtotal(itemTotal, currentSubtotal);
 
   const salesTax = calculateSalesTax(
     taxPercentage,
@@ -89,5 +89,5 @@ export const prepGrandTotal = (itemTotal, grandTotal, taxPercentage) => {
     convertToDecimals(salesTax)
   );
 
-  return { subtotal: subTotal, tax: salesTax, total: updatedGrandTotal };
+  return { subtotal: subTotal, salesTax, total: updatedGrandTotal };
 };

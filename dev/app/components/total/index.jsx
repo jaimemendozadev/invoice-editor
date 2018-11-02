@@ -12,7 +12,7 @@ const Total = ({ subtotal, tax, taxRate, total }) => (
 
     <div className="total-figures">
       <div>{`$${subtotal}`}</div>
-      <div>{`$${tax}`}</div>
+      <div>{`$${salesTax}`}</div>
       <div>{`$${total}`}</div>
     </div>
   </div>
@@ -21,14 +21,14 @@ const Total = ({ subtotal, tax, taxRate, total }) => (
 Total.propTypes = {
   taxRate: PropTypes.number.isRequired,
   subtotal: PropTypes.string.isRequired,
-  tax: PropTypes.string.isRequired,
+  salesTax: PropTypes.string.isRequired,
   total: PropTypes.string.isRequired
 };
 
 const mapStateToProps = ({ total }) => ({
   taxRate: total.taxRate,
   subtotal: total.subtotal,
-  tax: total.tax,
+  salesTax: total.salesTax,
   total: total.total
 });
 
