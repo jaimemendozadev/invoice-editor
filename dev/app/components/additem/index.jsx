@@ -5,13 +5,13 @@ import FormRow from "../formrow";
 import ErrorMessage from "../errormessage";
 import { addLineItem } from "../../services/redux/actions";
 import {
-  calculateTotal,
   createLineItem,
   defaultState,
   createErrorObject,
-  formatPrice,
   checkForFormErrors
 } from "./utils";
+
+import { formatPrice, calculateTotal } from "./utils/accounting";
 
 class AddItem extends Component {
   constructor(props) {
@@ -64,6 +64,8 @@ class AddItem extends Component {
       console.log("subtotal ", subtotal);
       console.log("tax is ", tax);
       console.log("grand_total ", grand_total);
+
+      console.log("payload is ", payload);
 
       // If the final check passes, reset form and invoke callback
       this.setState(defaultState, () => callback());

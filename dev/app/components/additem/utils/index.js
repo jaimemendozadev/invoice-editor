@@ -43,6 +43,8 @@ export const createLineItem = state => {
   const payloadKey = `${item}-${price}`;
   payload[payloadKey] = lineItem;
 
+  console.log("payload inside createLineItem ", payload);
+
   return payload;
 };
 
