@@ -87,7 +87,11 @@ class AddItem extends Component {
         this.setState({ [formVal]: "0.00" });
       }
 
-      const numToCheck = parseFloat(price);
+      // Ensures that number passed to
+      // checkNumberInput only has 2 decimal places
+      const stringPriceFloat = parseFloat(price).toFixed(2);
+      const numToCheck = parseFloat(stringPriceFloat);
+
       const stateResets = { price: "0.00", total: "0.00" };
 
       this.checkNumberInput(numToCheck, "price", stateResets);
