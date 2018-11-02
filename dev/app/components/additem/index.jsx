@@ -60,12 +60,12 @@ class AddItem extends Component {
     if (checkResult === false) {
       const invoicePayload = createLineItem(this.state);
 
-      console.log("invoicePayload is ", invoicePayload);
+      // console.log("invoicePayload is ", invoicePayload);
 
       const totalPayload = prepGrandTotal(total, grand_total, taxPercentage);
 
       // If the final check passes, reset form and invoke callback
-      this.setState(defaultState, () => callback());
+      this.setState(defaultState, () => callback(invoicePayload));
     } else {
       this.setState(checkResult);
     }
@@ -129,7 +129,7 @@ class AddItem extends Component {
   render() {
     const { item, qty, price, total, errorMsgs } = this.state;
 
-    console.log("this.state inside AddItem ", this.state);
+    // console.log("this.state inside AddItem ", this.state);
     return (
       <form onSubmit={this.handleSubmit}>
         <h1>Add an Item</h1>

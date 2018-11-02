@@ -75,9 +75,13 @@ export const checkForFormErrors = (qty, price, item) => {
 };
 
 export const prepGrandTotal = (itemTotal, grandTotal, taxPercentage) => {
-  const subTotal = calculateSubtotal(itemTotal, grandTotal); // Returns decimal string
+  // Returned strings get convertedToDecimals
 
-  console.log("subTotal is ", subTotal);
+  const subTotal = convertToDecimals(calculateSubtotal(itemTotal, grandTotal));
+
+  const salesTax = convertToDecimals(
+    calculateSalesTax(taxPercentage, subTotal)
+  );
 };
 
 /*
