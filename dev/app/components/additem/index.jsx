@@ -57,13 +57,13 @@ class AddItem extends Component {
 
     const checkResult = checkForFormErrors(qty, price, item);
 
+    // If the final check passes, reset form and invoke callback
     if (checkResult === false) {
       const invoicePayload = createLineItem(this.state);
       const totalPayload = prepGrandTotal(total, subtotal, taxPercentage);
 
       const reduxPayload = { invoice: invoicePayload, total: totalPayload };
 
-      // If the final check passes, reset form and invoke callback
       this.setState(defaultState, () => callback(reduxPayload));
     } else {
       this.setState(checkResult);
