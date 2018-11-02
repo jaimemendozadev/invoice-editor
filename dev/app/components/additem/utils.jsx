@@ -20,28 +20,22 @@ export const inputErrors = {
   }
 };
 
-const createErrorObject = errorType =>
-  Object.assign({}, { errorMsgs: inputErrors[errorType] });
+export const createErrorObject = (stateResets = {}, errorType) =>
+  Object.assign({}, stateResets, { errorMsgs: inputErrors[errorType] });
+
+export const formatPrice = price => {
+  // Take the price, convert to float, then create string with 2 decimal places
+  const stringPriceFloat = parseFloat(price).toFixed(2);
+
+  // Convert string and return float of 2 decimal places
+  return parseFloat(stringPriceFloat);
+};
 
 export const calculateTotal = (qty, price) => {
   const result = qty * price;
 
   return result.toFixed(2); // Returns string total with cents
 };
-
-// export const checkForErrors = errorMsgs => {
-//   const errorKeys = Object.keys(errorMsgs);
-
-//   if (errorKeys.length) {
-//     return errorKeys.map((errorKey, idx) => (
-//       <div key={`${errorKey}-${idx}`} className="error-msg">
-//         {errorMsgs[errorKey]}
-//       </div>
-//     ));
-//   }
-
-//   return null;
-// };
 
 export const createLineItem = state => {
   const { item, price } = state;
@@ -66,15 +60,15 @@ export const createLineItem = state => {
 
 export const checkForFormErrors = (qty, price, item) => {
   if (item === "Description") {
-    return createErrorObject("item");
+    return createErrorObject({}, "item");
   }
 
   if (parseInt(qty, 10) <= 0) {
-    return createErrorObject("qty");
+    return createErrorObject({}, "qty");
   }
 
   if (parseFloat(price) <= 0) {
-    return createErrorObject("price");
+    return createErrorObject({}, "price");
   }
 
   return false;

@@ -8,7 +8,8 @@ import {
   calculateTotal,
   createLineItem,
   defaultState,
-  inputErrors,
+  createErrorObject,
+  formatPrice,
   checkForFormErrors
 } from "./utils";
 
@@ -26,14 +27,13 @@ class AddItem extends Component {
     const { qty, price } = this.state;
 
     if (Number.isNaN(numToCheck)) {
-      const newResetState = Object.assign({}, stateResets, {
-        errorMsgs: inputErrors[inputType]
-      });
+      const newResetState = createErrorObject(stateResets, inputType);
 
       this.setState(newResetState);
     } else {
       // Get the price & quantity
-      const usingPrice = inputType === "price" ? numToCheck : parseFloat(price);
+      const usingPrice =
+        inputType === "price" ? numToCheck : formatPrice(price);
       const usingQty = inputType === "qty" ? numToCheck : parseInt(qty, 10);
 
       // Get the updatedTotal
@@ -73,6 +73,10 @@ class AddItem extends Component {
   };
 
   handleBlur = formVal => {
+    // Where MOST of the magic happens
+    // Qty and Price state inputs are converted
+    // to nums before we invoke checkNumberInput
+
     const { item, qty, price } = this.state;
 
     if (formVal === "item") {
@@ -99,8 +103,7 @@ class AddItem extends Component {
 
       // Ensures that number passed to
       // checkNumberInput only has 2 decimal places
-      const stringPriceFloat = parseFloat(price).toFixed(2);
-      const numToCheck = parseFloat(stringPriceFloat);
+      const numToCheck = formatPrice(price);
 
       const stateResets = { price: "0.00", total: "0.00" };
 
