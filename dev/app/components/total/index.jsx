@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 const Total = ({ subtotal, tax, taxRate, total }) => (
@@ -24,4 +25,11 @@ Total.propTypes = {
   total: PropTypes.string.isRequired
 };
 
-export default Total;
+const mapStateToProps = ({ total }) => ({
+  taxRate: total.taxRate,
+  subtotal: total.subtotal,
+  tax: total.tax,
+  total: total.total
+});
+
+export default connect(mapStateToProps)(Total);
