@@ -1,5 +1,22 @@
 import React from "react";
 
+export const defaultState = {
+  qty: 0,
+  price: "0.00",
+  total: "0.00",
+  item: "Description",
+  errorMsgs: {}
+};
+
+export const inputErrors = {
+  qty: {
+    invalidQty: "Please enter a valid quantity."
+  },
+  price: {
+    invalidPrice: "Please enter a valid price."
+  }
+};
+
 export const calculateTotal = (qty, price) => {
   const result = qty * price;
 

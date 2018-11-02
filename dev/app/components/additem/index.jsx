@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import FormRow from "./FormRow";
 import { addLineItem } from "../../services/redux/actions";
-import { calculateTotal, createLineItem, checkForErrors } from "./utils";
-
-const defaultState = {
-  qty: 0,
-  price: "0.00",
-  total: "0.00",
-  item: "Description",
-  errorMsgs: {}
-};
+import {
+  calculateTotal,
+  createLineItem,
+  checkForErrors,
+  defaultState,
+  inputErrors
+} from "./utils";
 
 class AddItem extends Component {
   constructor(props) {
@@ -25,15 +24,6 @@ class AddItem extends Component {
   checkNumberInput = (numToCheck, inputType, stateResets) => {
     const { qty, price } = this.state;
 
-    const inputErrors = {
-      qty: {
-        invalidQty: "Please enter a valid quantity."
-      },
-      price: {
-        invalidPrice: "Please enter a valid price."
-      }
-    };
-
     if (Number.isNaN(numToCheck)) {
       const newResetState = Object.assign({}, stateResets, {
         errorMsgs: inputErrors[inputType]
@@ -42,16 +32,19 @@ class AddItem extends Component {
       this.setState(newResetState);
     } else {
       // Get the price & quantity
-      const usingPrice = inputType === "price" ? numToCheck : price;
-      const usingQty = inputType === "qty" ? numToCheck : qty;
+      const usingPrice = inputType === "price" ? numToCheck : parseFloat(price);
+      const usingQty = inputType === "qty" ? numToCheck : parseInt(qty, 10);
 
       // Get the updatedTotal
       const updatedTotal = calculateTotal(usingQty, usingPrice);
 
+      // Price should be displayed with cents
+      const updatedPrice = usingPrice.toFixed(2);
+
       this.setState({
         total: updatedTotal,
-        price: usingPrice.toFixed(2), // Price should be displayed with cents
-        qty: parseInt(usingQty, 10) // Not necessary, just incase
+        price: updatedPrice,
+        qty: usingQty
       });
     }
   };
@@ -111,42 +104,35 @@ class AddItem extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <h1>Add an Item</h1>
+        <FormRow
+          labelName="Item:"
+          className="longer-input"
+          type="text"
+          value={item}
+          onFocus={() => this.handleFocus("item")}
+          onBlur={() => this.handleBlur("item")}
+          onChange={evt => this.handleChange(evt, "item")}
+        />
 
-        <div className="form-row">
-          <div className="form-label">Item:</div>
-          <input
-            className="longer-input"
-            type="text"
-            value={`${item}`}
-            onFocus={() => this.handleFocus("item")}
-            onBlur={() => this.handleBlur("item")}
-            onChange={evt => this.handleChange(evt, "item")}
-          />
-        </div>
+        <FormRow
+          labelName="Quantity:"
+          className="shorter-input"
+          type="text"
+          value={qty}
+          onFocus={() => this.handleFocus("qty")}
+          onBlur={() => this.handleBlur("qty")}
+          onChange={evt => this.handleChange(evt, "qty")}
+        />
 
-        <div className="form-row">
-          <div className="form-label">Quantity:</div>
-          <input
-            className="shorter-input"
-            type="text"
-            value={`${qty}`}
-            onFocus={() => this.handleFocus("qty")}
-            onBlur={() => this.handleBlur("qty")}
-            onChange={evt => this.handleChange(evt, "qty")}
-          />
-        </div>
-
-        <div className="form-row">
-          <div className="form-label">Price:</div>
-          <input
-            className="shorter-input"
-            type="text"
-            value={price}
-            onFocus={() => this.handleFocus("price")}
-            onBlur={() => this.handleBlur("price")}
-            onChange={evt => this.handleChange(evt, "price")}
-          />
-        </div>
+        <FormRow
+          labelName="Price:"
+          className="shorter-input"
+          type="text"
+          value={price}
+          onFocus={() => this.handleFocus("price")}
+          onBlur={() => this.handleBlur("price")}
+          onChange={evt => this.handleChange(evt, "price")}
+        />
 
         <div className="form-row">
           <div className="form-label">Total</div>
