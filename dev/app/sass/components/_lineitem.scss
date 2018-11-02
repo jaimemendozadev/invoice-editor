@@ -1,14 +1,22 @@
 @media only screen and (max-width: 480px) {
   .line-item {
-    width: 70%; // based on cols width
+    width: 100%; // Based on cols width
     height: 300px;
-    border: 1px solid #ff5bb5;    
+    border: 1px solid #ff5bb5;
+    margin-bottom: 1.5em;    
+
+
   }
 
   .line-item-field {
     height: 25%;
     border: 1px solid #87ffe7;
     font-size: 1.5em;
-    @include flexCenter;
+    overflow: scroll; // Prevents long text from breaking layout
+    display: flex;
+    align-items: center;
+    padding-left: .5em;
+    
+    
   }
 }

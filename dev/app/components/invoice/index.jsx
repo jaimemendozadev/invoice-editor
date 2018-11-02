@@ -25,6 +25,14 @@ const mockData = {
     price: "12.99",
     qty: 5,
     total: "64.95"
+  },
+
+  "Fake Widget jfjasuoreuwoajfasdjfasjfipoiweerojasdfiashdpfhpiewahroefhapehrpeawhrohsdoafuasdpureuawpfupu-875-45.00": {
+    item:
+      "Fake Widget jfjasuoreuwoajfasdjfasjfipoiweerojasdfiashdpfhpiewahroefhapehrpeawhrohsdoafuasdpureuawpfupu",
+    price: "45.00",
+    qty: 875,
+    total: "39,375723895742305702375032475273523578234573254637252357325899235"
   }
 };
 
