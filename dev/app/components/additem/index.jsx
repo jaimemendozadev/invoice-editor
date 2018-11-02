@@ -170,10 +170,19 @@ class AddItem extends Component {
 }
 
 AddItem.propTypes = {
-  AddLineItem: PropTypes.func.isRequired
+  AddLineItem: PropTypes.func.isRequired,
+  subtotal: PropTypes.string.isRequired,
+  tax: PropTypes.string.isRequired,
+  total: PropTypes.string.isRequired
 };
 
+const mapStateToProps = ({ total }) => ({
+  subtotal: total.subtotal,
+  tax: total.tax,
+  total: total.total
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { AddLineItem: addLineItem }
 )(AddItem);
