@@ -5,6 +5,31 @@ import { connect } from "react-redux";
 import LineItem from "../lineitem";
 import Total from "./Total";
 
+const mockData = {
+  "Widget 1-2.34": {
+    item: "Widget 1",
+    price: "2.34",
+    qty: 2,
+    total: "4.68"
+  },
+
+  "Widget 2-4.55": {
+    item: "Widget 2",
+    price: "4.55",
+    qty: 3,
+    total: "13.65"
+  },
+
+  "Widget 376-12.99": {
+    item: "Widget 376",
+    price: "12.99",
+    qty: 5,
+    total: "64.95"
+  }
+};
+
+const devMode = true;
+
 const renderLineItems = (invoiceItems, invoiceItemKeys) =>
   invoiceItemKeys.map(key => (
     <LineItem key={key} lineItem={invoiceItems[key]} />
@@ -33,7 +58,9 @@ const Invoice = ({ invoiceItems, subtotal, tax, taxRate, total }) => (
         </div>
 
         <div className="line-items-container">
-          {checkForLineItems(invoiceItems)}
+          {devMode
+            ? checkForLineItems(mockData)
+            : checkForLineItems(invoiceItems)}
         </div>
 
         <button className="additem-btn">
