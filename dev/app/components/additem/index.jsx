@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import FormRow from "../formrow";
+import ErrorMessage from "../errormessage";
 import { addLineItem } from "../../services/redux/actions";
 import {
   calculateTotal,
   createLineItem,
-  checkForErrors,
   defaultState,
   inputErrors,
   checkForFormErrors
@@ -170,7 +170,7 @@ class AddItem extends Component {
           Add Line Item
         </button>
 
-        {checkForErrors(errorMsgs)}
+        <ErrorMessage errorMsgs={errorMsgs} />
       </form>
     );
   }

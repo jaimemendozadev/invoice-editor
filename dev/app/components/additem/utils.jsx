@@ -21,7 +21,7 @@ export const inputErrors = {
 };
 
 const createErrorObject = errorType =>
-  Object.assign({}, { errorMsgs: inputErrors.errorType });
+  Object.assign({}, { errorMsgs: inputErrors[errorType] });
 
 export const calculateTotal = (qty, price) => {
   const result = qty * price;
@@ -29,19 +29,19 @@ export const calculateTotal = (qty, price) => {
   return result.toFixed(2); // Returns string total with cents
 };
 
-export const checkForErrors = errorMsgs => {
-  const errorKeys = Object.keys(errorMsgs);
+// export const checkForErrors = errorMsgs => {
+//   const errorKeys = Object.keys(errorMsgs);
 
-  if (errorKeys.length) {
-    return errorKeys.map((errorKey, idx) => (
-      <div key={`${errorKey}-${idx}`} className="error-msg">
-        {errorMsgs[errorKey]}
-      </div>
-    ));
-  }
+//   if (errorKeys.length) {
+//     return errorKeys.map((errorKey, idx) => (
+//       <div key={`${errorKey}-${idx}`} className="error-msg">
+//         {errorMsgs[errorKey]}
+//       </div>
+//     ));
+//   }
 
-  return null;
-};
+//   return null;
+// };
 
 export const createLineItem = state => {
   const { item, price } = state;
