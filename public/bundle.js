@@ -225,7 +225,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst defaultAddItemState = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _addItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addItem */ \"./dev/app/services/redux/reducers/addItem/index.js\");\n/* harmony import */ var _invoice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./invoice */ \"./dev/app/services/redux/reducers/invoice/index.js\");\n\n\n\n\nconst rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  addItem: _addItem__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  invoice: _invoice__WEBPACK_IMPORTED_MODULE_2__[\"default\"]\n});\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (rootReducer);\n\n\n//# sourceURL=webpack:///./dev/app/services/redux/reducers/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _addItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addItem */ \"./dev/app/services/redux/reducers/addItem/index.js\");\n/* harmony import */ var _invoice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./invoice */ \"./dev/app/services/redux/reducers/invoice/index.js\");\n/* harmony import */ var _total__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./total */ \"./dev/app/services/redux/reducers/total/index.js\");\n\n\n\n\n\nconst rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  addItem: _addItem__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  invoice: _invoice__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  total: _total__WEBPACK_IMPORTED_MODULE_3__[\"default\"]\n});\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (rootReducer);\n\n\n//# sourceURL=webpack:///./dev/app/services/redux/reducers/index.js?");
 
 /***/ }),
 
@@ -238,6 +238,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redu
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../types */ \"./dev/app/services/redux/types/index.js\");\n\n\nconst defaultInvoiceState = {\n  invoiceItems: {},\n  subtotal: \"0.00\",\n  taxRate: 5,\n  tax: \"0.00\",\n  total: \"0.00\"\n};\n\nconst invoice = (state = defaultInvoiceState, action) => {\n  switch (action.type) {\n    case _types__WEBPACK_IMPORTED_MODULE_0__[\"ADD_LINE_ITEM\"]:\n      return Object.assign({}, state, {\n        invoiceItems: Object.assign({}, state.invoiceItems, action.payload)\n      });\n    default:\n      return state;\n  }\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (invoice);\n\n\n//# sourceURL=webpack:///./dev/app/services/redux/reducers/invoice/index.js?");
+
+/***/ }),
+
+/***/ "./dev/app/services/redux/reducers/total/index.js":
+/*!********************************************************!*\
+  !*** ./dev/app/services/redux/reducers/total/index.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst defaultTotalState = {\n  subtotal: \"0.00\",\n  tax: \"0.00\",\n  total: \"0.00\"\n};\n\nconst total = (state = defaultTotalState, action) => {\n  switch (action.type) {\n    default:\n      return state;\n  }\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (total);\n\n\n//# sourceURL=webpack:///./dev/app/services/redux/reducers/total/index.js?");
 
 /***/ }),
 
