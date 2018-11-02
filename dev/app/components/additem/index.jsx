@@ -171,6 +171,7 @@ class AddItem extends Component {
 
 AddItem.propTypes = {
   AddLineItem: PropTypes.func.isRequired,
+  taxRate: PropTypes.number.isRequired,
   subtotal: PropTypes.string.isRequired,
   tax: PropTypes.string.isRequired,
   total: PropTypes.string.isRequired
@@ -179,7 +180,8 @@ AddItem.propTypes = {
 const mapStateToProps = ({ total }) => ({
   subtotal: total.subtotal,
   tax: total.tax,
-  total: total.total
+  total: total.total,
+  taxRate: total.taxRate
 });
 
 export default connect(

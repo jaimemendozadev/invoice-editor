@@ -18,6 +18,7 @@ const Total = ({ subtotal, tax, taxRate, total }) => (
 );
 
 Total.propTypes = {
+  taxRate: PropTypes.number.isRequired,
   subtotal: PropTypes.string.isRequired,
   tax: PropTypes.string.isRequired,
   total: PropTypes.string.isRequired

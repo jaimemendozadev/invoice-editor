@@ -53,7 +53,7 @@ const checkForLineItems = invoiceItems => {
   return "You have no Line Items";
 };
 
-const Invoice = ({ invoiceItems, subtotal, tax, taxRate, total }) => (
+const Invoice = ({ invoiceItems }) => (
   <div>
     <h1>Invoice</h1>
     <div className="invoice-container">
@@ -76,17 +76,13 @@ const Invoice = ({ invoiceItems, subtotal, tax, taxRate, total }) => (
         </button>
       </div>
 
-      <Total subtotal={subtotal} tax={tax} taxRate={taxRate} total={total} />
+      <Total />
     </div>
   </div>
 );
 
 const mapStateToProps = ({ invoice }) => ({
-  invoiceItems: invoice.invoiceItems,
-  subtotal: invoice.subtotal,
-  tax: invoice.tax,
-  taxRate: invoice.taxRate,
-  total: invoice.total
+  invoiceItems: invoice.invoiceItems
 });
 
 Invoice.propTypes = {
@@ -97,11 +93,7 @@ Invoice.propTypes = {
       price: PropTypes.string,
       total: PropTypes.string
     })
-  ).isRequired,
-  taxRate: PropTypes.number.isRequired,
-  subtotal: PropTypes.string.isRequired,
-  tax: PropTypes.string.isRequired,
-  total: PropTypes.string.isRequired
+  ).isRequired
 };
 
 export default connect(mapStateToProps)(Invoice);
