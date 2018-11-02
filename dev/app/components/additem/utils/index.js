@@ -79,12 +79,15 @@ export const prepGrandTotal = (itemTotal, grandTotal, taxPercentage) => {
 
   const subTotal = calculateSubtotal(itemTotal, grandTotal);
 
-  const salesTax = convertToDecimals(
-    calculateSalesTax(taxPercentage, convertToDecimals(subTotal))
+  const salesTax = calculateSalesTax(
+    taxPercentage,
+    convertToDecimals(subTotal)
   );
 
   const updatedGrandTotal = calculateGrandTotal(
     convertToDecimals(subTotal),
     convertToDecimals(salesTax)
   );
+
+  return { subtotal: subTotal, tax: salesTax, total: updatedGrandTotal };
 };
