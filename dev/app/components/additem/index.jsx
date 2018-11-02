@@ -51,10 +51,10 @@ class AddItem extends Component {
   };
 
   performFinalCheck = callback => {
-    const { item, errorMsgs, qty, price } = this.state;
+    const { item, qty, price } = this.state;
     const { taxRate, subtotal, tax, grand_total } = this.props;
 
-    const checkResult = checkForFormErrors(qty, price, item, errorMsgs);
+    const checkResult = checkForFormErrors(qty, price, item);
 
     if (checkResult === false) {
       const payload = createLineItem(this.state);

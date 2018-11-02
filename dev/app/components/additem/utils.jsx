@@ -20,6 +20,9 @@ export const inputErrors = {
   }
 };
 
+const createErrorObject = errorType =>
+  Object.assign({}, { errorMsgs: inputErrors.errorType });
+
 export const calculateTotal = (qty, price) => {
   const result = qty * price;
 
@@ -61,29 +64,17 @@ export const createLineItem = state => {
   return payload;
 };
 
-export const checkForFormErrors = (qty, price, item, errorMsgs) => {
+export const checkForFormErrors = (qty, price, item) => {
   if (item === "Description") {
-    const newError = Object.assign({}, errorMsgs, {
-      errorMsgs: inputErrors.item
-    });
-
-    return newError;
+    return createErrorObject("item");
   }
 
   if (parseInt(qty, 10) <= 0) {
-    const newError = Object.assign({}, errorMsgs, {
-      errorMsgs: inputErrors.qty
-    });
-
-    return newError;
+    return createErrorObject("qty");
   }
 
   if (parseFloat(price) <= 0) {
-    const newError = Object.assign({}, errorMsgs, {
-      errorMsgs: inputErrors.price
-    });
-
-    return newError;
+    return createErrorObject("price");
   }
 
   return false;
