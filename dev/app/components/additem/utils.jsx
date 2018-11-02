@@ -29,8 +29,6 @@ export const calculateTotal = (qty, price) => {
 export const checkForErrors = errorMsgs => {
   const errorKeys = Object.keys(errorMsgs);
 
-  console.log("errorKeys ", errorKeys);
-
   if (errorKeys.length) {
     return errorKeys.map((errorKey, idx) => (
       <div key={`${errorKey}-${idx}`} className="error-msg">
@@ -50,7 +48,9 @@ export const createLineItem = state => {
   const lineItem = {};
 
   stateKeys.forEach(key => {
-    lineItem[key] = state[key];
+    if (key !== "errorMsgs") {
+      lineItem[key] = state[key];
+    }
   });
 
   // Prep Redux payload with unique payloadKey for Invoice view

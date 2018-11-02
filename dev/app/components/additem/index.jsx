@@ -58,7 +58,8 @@ class AddItem extends Component {
 
       this.setState(newError);
     } else {
-      callback();
+      // If the final check passes, reset form and invoke callback
+      this.setState(defaultState, () => callback());
     }
   };
 
