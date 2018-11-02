@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import LineItem from "../lineitem";
-import Total from "./Total";
+import Total from "../total";
 
 const mockData = {
   "Widget 1-2.34": {
