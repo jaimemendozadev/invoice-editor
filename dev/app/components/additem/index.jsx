@@ -8,10 +8,11 @@ import {
   createLineItem,
   defaultState,
   createErrorObject,
-  checkForFormErrors
+  checkForFormErrors,
+  prepGrandTotal
 } from "./utils";
 
-import { formatPrice, calculateTotal } from "./utils/accounting";
+import { convertToDecimals, calculateTotal } from "./utils/accounting";
 
 class AddItem extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class AddItem extends Component {
     } else {
       // Get the price & quantity
       const usingPrice =
-        inputType === "price" ? numToCheck : formatPrice(price);
+        inputType === "price" ? numToCheck : convertToDecimals(price);
       const usingQty = inputType === "qty" ? numToCheck : parseInt(qty, 10);
 
       // Get the updatedTotal
@@ -51,21 +52,17 @@ class AddItem extends Component {
   };
 
   performFinalCheck = callback => {
-    const { item, qty, price } = this.state;
-    const { taxRate, subtotal, tax, grand_total } = this.props;
+    const { item, qty, price, total } = this.state;
+    const { taxPercentage, subtotal, tax, grand_total } = this.props;
 
     const checkResult = checkForFormErrors(qty, price, item);
 
     if (checkResult === false) {
-      const payload = createLineItem(this.state);
-      // Calculate total Redux state here
+      const invoicePayload = createLineItem(this.state);
 
-      console.log("taxRate ", taxRate);
-      console.log("subtotal ", subtotal);
-      console.log("tax is ", tax);
-      console.log("grand_total ", grand_total);
+      console.log("invoicePayload is ", invoicePayload);
 
-      console.log("payload is ", payload);
+      const totalPayload = prepGrandTotal(total, grand_total, taxPercentage);
 
       // If the final check passes, reset form and invoke callback
       this.setState(defaultState, () => callback());
@@ -105,7 +102,7 @@ class AddItem extends Component {
 
       // Ensures that number passed to
       // checkNumberInput only has 2 decimal places
-      const numToCheck = formatPrice(price);
+      const numToCheck = convertToDecimals(price);
 
       const stateResets = { price: "0.00", total: "0.00" };
 
@@ -183,7 +180,7 @@ class AddItem extends Component {
 
 AddItem.propTypes = {
   AddLineItem: PropTypes.func.isRequired,
-  taxRate: PropTypes.number.isRequired,
+  taxPercentage: PropTypes.number.isRequired,
   subtotal: PropTypes.string.isRequired,
   tax: PropTypes.string.isRequired,
   grand_total: PropTypes.string.isRequired
@@ -193,7 +190,7 @@ const mapStateToProps = ({ total }) => ({
   subtotal: total.subtotal,
   tax: total.tax,
   grand_total: total.total,
-  taxRate: total.taxRate
+  taxPercentage: total.taxPercentage
 });
 
 export default connect(

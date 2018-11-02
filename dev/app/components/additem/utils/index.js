@@ -1,6 +1,18 @@
-import { formatPrice, calculateTotal } from "./accounting";
+import {
+  convertToDecimals,
+  calculateTotal,
+  calculateSubtotal,
+  calculateSalesTax,
+  calculateGrandTotal
+} from "./accounting";
 
-export { formatPrice, calculateTotal };
+export {
+  convertToDecimals,
+  calculateTotal,
+  calculateSubtotal,
+  calculateSalesTax,
+  calculateGrandTotal
+};
 
 export const defaultState = {
   qty: 0,
@@ -43,8 +55,6 @@ export const createLineItem = state => {
   const payloadKey = `${item}-${price}`;
   payload[payloadKey] = lineItem;
 
-  console.log("payload inside createLineItem ", payload);
-
   return payload;
 };
 
@@ -63,3 +73,20 @@ export const checkForFormErrors = (qty, price, item) => {
 
   return false;
 };
+
+export const prepGrandTotal = (itemTotal, grandTotal, taxPercentage) => {
+  const subTotal = calculateSubtotal(itemTotal, grandTotal); // Returns decimal string
+
+  console.log("subTotal is ", subTotal);
+};
+
+/*
+
+console.log("taxRate ", taxRate);
+      console.log("subtotal ", subtotal);
+      console.log("tax is ", tax);
+      console.log("grand_total ", grand_total);
+
+
+
+*/
