@@ -29,7 +29,13 @@ export const calculateSalesTax = (taxPercentage, subTotal) => {
 
   baseSalesTax = taxRate * baseSalesTax;
 
+  // Return string total with cents
   return baseSalesTax.toFixed(2);
 };
 
-export const calculateGrandTotal = (subTotal, salesTax) => {};
+export const calculateGrandTotal = (subTotal, salesTax) => {
+  const grandTotal = subTotal + salesTax;
+
+  // Return string total with cents
+  return grandTotal.toFixed(2);
+};
