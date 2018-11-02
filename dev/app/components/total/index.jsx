@@ -2,11 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-const Total = ({ subtotal, tax, taxRate, total }) => (
+const Total = ({ subtotal, salesTax, taxPercentage, total }) => (
   <div className="total">
     <div className="total-labels">
       <div>Subtotal</div>
-      <div>{`Tax(${taxRate}%)`}</div>
+      <div>{`Tax(${taxPercentage}%)`}</div>
       <div>Total</div>
     </div>
 
@@ -19,17 +19,17 @@ const Total = ({ subtotal, tax, taxRate, total }) => (
 );
 
 Total.propTypes = {
-  taxRate: PropTypes.number.isRequired,
   subtotal: PropTypes.string.isRequired,
   salesTax: PropTypes.string.isRequired,
-  total: PropTypes.string.isRequired
+  total: PropTypes.string.isRequired,
+  taxPercentage: PropTypes.number.isRequired
 };
 
 const mapStateToProps = ({ total }) => ({
-  taxRate: total.taxRate,
   subtotal: total.subtotal,
   salesTax: total.salesTax,
-  total: total.total
+  total: total.total,
+  taxPercentage: total.taxPercentage
 });
 
 export default connect(mapStateToProps)(Total);
