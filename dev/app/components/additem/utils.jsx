@@ -60,3 +60,31 @@ export const createLineItem = state => {
 
   return payload;
 };
+
+export const checkForFormErrors = (qty, price, item, errorMsgs) => {
+  if (item === "Description") {
+    const newError = Object.assign({}, errorMsgs, {
+      errorMsgs: inputErrors.item
+    });
+
+    return newError;
+  }
+
+  if (parseInt(qty, 10) <= 0) {
+    const newError = Object.assign({}, errorMsgs, {
+      errorMsgs: inputErrors.qty
+    });
+
+    return newError;
+  }
+
+  if (parseFloat(price) <= 0) {
+    const newError = Object.assign({}, errorMsgs, {
+      errorMsgs: inputErrors.price
+    });
+
+    return newError;
+  }
+
+  return false;
+};

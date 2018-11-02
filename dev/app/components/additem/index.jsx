@@ -8,7 +8,8 @@ import {
   createLineItem,
   checkForErrors,
   defaultState,
-  inputErrors
+  inputErrors,
+  checkForFormErrors
 } from "./utils";
 
 class AddItem extends Component {
@@ -42,24 +43,23 @@ class AddItem extends Component {
       const updatedPrice = usingPrice.toFixed(2);
 
       this.setState({
-        total: updatedTotal,
-        price: updatedPrice,
-        qty: usingQty
+        total: updatedTotal, // type string
+        price: updatedPrice, // type string
+        qty: usingQty // type number
       });
     }
   };
 
-  checkItemInput = (inputType, callback) => {
-    const { item, errorMsgs } = this.state;
-    if (item === "Description") {
-      const newError = Object.assign({}, errorMsgs, {
-        errorMsgs: inputErrors[inputType]
-      });
+  performFinalCheck = callback => {
+    const { item, errorMsgs, qty, price } = this.state;
 
-      this.setState(newError);
-    } else {
+    const checkResult = checkForFormErrors(qty, price, item, errorMsgs);
+
+    if (checkResult === false) {
       // If the final check passes, reset form and invoke callback
       this.setState(defaultState, () => callback());
+    } else {
+      this.setState(checkResult);
     }
   };
 
@@ -112,9 +112,9 @@ class AddItem extends Component {
 
     const payload = createLineItem(this.state);
 
-    // this.checkItemInput performs final payload check
+    // this.performFinalCheck performs final payload check
     // before firing Redux action
-    this.checkItemInput("item", () => AddLineItem(payload));
+    this.performFinalCheck(() => AddLineItem(payload));
   };
 
   render() {
