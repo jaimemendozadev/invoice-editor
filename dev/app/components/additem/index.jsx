@@ -52,10 +52,19 @@ class AddItem extends Component {
 
   performFinalCheck = callback => {
     const { item, errorMsgs, qty, price } = this.state;
+    const { taxRate, subtotal, tax, grand_total } = this.props;
 
     const checkResult = checkForFormErrors(qty, price, item, errorMsgs);
 
     if (checkResult === false) {
+      const payload = createLineItem(this.state);
+      // Calculate total Redux state here
+
+      console.log("taxRate ", taxRate);
+      console.log("subtotal ", subtotal);
+      console.log("tax is ", tax);
+      console.log("grand_total ", grand_total);
+
       // If the final check passes, reset form and invoke callback
       this.setState(defaultState, () => callback());
     } else {
@@ -110,11 +119,9 @@ class AddItem extends Component {
     evt.preventDefault();
     const { AddLineItem } = this.props;
 
-    const payload = createLineItem(this.state);
-
     // this.performFinalCheck performs final payload check
     // before firing Redux action
-    this.performFinalCheck(() => AddLineItem(payload));
+    this.performFinalCheck(AddLineItem);
   };
 
   render() {
@@ -174,13 +181,13 @@ AddItem.propTypes = {
   taxRate: PropTypes.number.isRequired,
   subtotal: PropTypes.string.isRequired,
   tax: PropTypes.string.isRequired,
-  total: PropTypes.string.isRequired
+  grand_total: PropTypes.string.isRequired
 };
 
 const mapStateToProps = ({ total }) => ({
   subtotal: total.subtotal,
   tax: total.tax,
-  total: total.total,
+  grand_total: total.total,
   taxRate: total.taxRate
 });
 
