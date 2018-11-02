@@ -2,10 +2,10 @@ import React from "react";
 
 const LineItem = ({ lineItem }) => (
   <div className="line-item">
-    <div>{lineItem.item}</div>
-    <div>{lineItem.qty}</div>
-    <div>{lineItem.price}</div>
-    <div>{lineItem.total}</div>
+    <div className="line-item-field item-field">{lineItem.item}</div>
+    <div className="line-item-field qty-field">{lineItem.qty}</div>
+    <div className="line-item-field price-field">{lineItem.price}</div>
+    <div className="line-item-field total-field">{lineItem.total}</div>
   </div>
 );
 

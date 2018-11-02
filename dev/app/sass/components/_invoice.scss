@@ -26,6 +26,9 @@
       width: 80%;
       margin: 1em 0;
       border: 1px solid gold;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .additem-btn {
@@ -42,4 +45,6 @@
       }
     }    
   }
+
+
 }

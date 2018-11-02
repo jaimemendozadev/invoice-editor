@@ -72,7 +72,10 @@ body {
     .ledger-container .line-items-container {
       width: 80%;
       margin: 1em 0;
-      border: 1px solid gold; }
+      border: 1px solid gold;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; }
     .ledger-container .additem-btn {
       width: 50%;
       height: 70px;
@@ -84,6 +87,19 @@ body {
       .ledger-container .additem-btn a:active {
         text-decoration: none;
         color: black; } }
+
+@media only screen and (max-width: 480px) {
+  .line-item {
+    width: 70%;
+    height: 300px;
+    border: 1px solid #ff5bb5; }
+  .line-item-field {
+    height: 25%;
+    border: 1px solid #87ffe7;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center; } }
 
 .total {
   width: 80%;

@@ -1,0 +1,14 @@
+@media only screen and (max-width: 480px) {
+  .line-item {
+    width: 70%; // based on cols width
+    height: 300px;
+    border: 1px solid #ff5bb5;    
+  }
+
+  .line-item-field {
+    height: 25%;
+    border: 1px solid #87ffe7;
+    font-size: 1.5em;
+    @include flexCenter;
+  }
+}
