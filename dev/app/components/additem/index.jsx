@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import FormRow from "./FormRow";
+import FormRow from "../formrow";
 import { addLineItem } from "../../services/redux/actions";
 import {
   calculateTotal,
