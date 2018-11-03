@@ -224,21 +224,32 @@ mixin styling
 @media only screen and (min-width: 541px) and (max-width: 1024px) {
   .line-item {
     display: flex; }
+    .line-item .total-field {
+      border-right: none; }
   .line-item-field {
     width: 25%; }
   .total-field img {
     width: 25px;
     height: 25px;
-    margin-right: .5em; } }
+    margin-right: .5em; }
+  /*********************
+  * Table Styling
+  **********************/
+  .line-item .total-field {
+    border-right: none; }
+  .line-item-field {
+    padding: 10px;
+    border-top: none;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    border-left: none; }
+  /**** End Table Styling ****/ }
 
 /********************************
 * Base Styles
 *********************************/
 .line-item {
   color: white; }
-
-.line-item-field {
-  padding: 10px; }
 
 .line-item-field:nth-child(1) {
   background-color: #49C39E; }
