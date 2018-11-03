@@ -176,8 +176,20 @@ form .form-row:nth-child(odd) {
     margin: 0 auto 1.5em; } }
 
 @media only screen and (min-width: 541px) and (max-width: 1024px) {
+  .invoice-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; }
   .ledger-container {
-    width: 100%; } }
+    width: 100%;
+    margin-bottom: 2em; }
+  .additem-btn {
+    width: 170px;
+    height: 70px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    display: block; } }
 
 /********************************
 * Base Styles
@@ -276,11 +288,17 @@ form .form-row:nth-child(odd) {
   .total-figures div {
     margin-bottom: 1em; } }
 
+@media only screen and (min-width: 541px) and (max-width: 1024px) {
+  .total {
+    width: 50%; } }
+
+/********************************
+* Base Styles
+*********************************/
 .total {
   border: 2px solid grey;
   padding: 1em;
   border-radius: 10px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   overflow: scroll; }

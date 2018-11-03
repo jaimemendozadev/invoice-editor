@@ -32,3 +32,11 @@
   border-bottom: if($bottom != none, 1px solid $bottom, none);
   border-left: if($left != none, 1px solid $left, none);
 }
+
+
+@mixin addItemBtn($width, $height) {
+  @include setDimensions($width, $height); 
+  border-radius: 10px;
+  font-size: 1.5em;
+  display: block;
+}

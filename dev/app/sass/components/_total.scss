@@ -31,12 +31,27 @@
 }
 
 
+// Tablet
+@media only screen and (min-width: 541px) and (max-width: 1024px) {
+  .total {
+    width: 50%;
+  }
+
+}
+
+
+
+
+
+/********************************
+* Base Styles
+*********************************/
+
 .total {
-  // width: 85%;
+
   border: 2px solid grey;
   padding: 1em;
   border-radius: 10px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   overflow: scroll;
