@@ -146,7 +146,7 @@ form .form-row:nth-child(odd) {
   .ledger-container {
     border-top: 1px solid grey;
     border-right: 1px solid grey;
-    border-bottom: 1px solid grey;
+    border-bottom: none;
     border-left: 1px solid grey;
     font-size: 1.5em; }
   .header {
