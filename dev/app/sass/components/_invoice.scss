@@ -68,15 +68,14 @@
 
 
   .ledger-container {
-    @include setBorder(grey, grey, grey, grey)
+    @include setBorder(grey, grey, grey, grey);
   }
 
-  .cols {
-    .header {
-      @include setBorder(none, grey, grey, grey);
-  
-    }
+
+  .header {
+    @include setBorder(none, grey, grey, none);
   }
+
 
 
 
@@ -102,20 +101,20 @@
   color: white;
 
   div:nth-child(1) {
-    @include setFieldBGColor(#49C39E);
+    background-color: #49C39E;
   }
 
   div:nth-child(2) {
-    @include setFieldBGColor(#80D2DE);
+    background-color: #80D2DE;
     
   }
 
   div:nth-child(3) {
-    @include setFieldBGColor(#EBB424);
+    background-color: #EBB424;
     
   }
   div:nth-child(4) {
-    @include setFieldBGColor(#D40E0D);
+    background-color: #D40E0D;
   }
 }
 

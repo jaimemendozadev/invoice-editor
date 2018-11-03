@@ -148,11 +148,11 @@ form .form-row:nth-child(odd) {
     border-right: 1px solid grey;
     border-bottom: 1px solid grey;
     border-left: 1px solid grey; }
-  .cols .header {
+  .header {
     border-top: none;
     border-right: 1px solid grey;
     border-bottom: 1px solid grey;
-    border-left: 1px solid grey; }
+    border-left: none; }
   .cols {
     display: flex; }
     .cols .header {
@@ -164,17 +164,13 @@ form .form-row:nth-child(odd) {
 .cols {
   color: white; }
   .cols div:nth-child(1) {
-    background-color: #49C39E;
-    border: 1px solid #49C39E; }
+    background-color: #49C39E; }
   .cols div:nth-child(2) {
-    background-color: #80D2DE;
-    border: 1px solid #80D2DE; }
+    background-color: #80D2DE; }
   .cols div:nth-child(3) {
-    background-color: #EBB424;
-    border: 1px solid #EBB424; }
+    background-color: #EBB424; }
   .cols div:nth-child(4) {
-    background-color: #D40E0D;
-    border: 1px solid #D40E0D; }
+    background-color: #D40E0D; }
 
 .default-msg {
   font-size: 2em; }
@@ -230,20 +226,16 @@ form .form-row:nth-child(odd) {
   color: white; }
 
 .line-item-field:nth-child(1) {
-  background-color: #49C39E;
-  border: 1px solid #49C39E; }
+  background-color: #49C39E; }
 
 .line-item-field:nth-child(2) {
-  background-color: #80D2DE;
-  border: 1px solid #80D2DE; }
+  background-color: #80D2DE; }
 
 .line-item-field:nth-child(3) {
-  background-color: #EBB424;
-  border: 1px solid #EBB424; }
+  background-color: #EBB424; }
 
 .line-item-field:nth-child(4) {
   background-color: #D40E0D;
-  border: 1px solid #D40E0D;
   display: flex;
   justify-content: space-between; }
   .line-item-field:nth-child(4) span {
