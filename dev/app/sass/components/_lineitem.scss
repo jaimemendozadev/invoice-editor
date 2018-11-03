@@ -2,7 +2,7 @@
 * Media Query Styles
 *********************************/
 
-@media only screen and (max-width: 530px) {
+@media only screen and (max-width: 540px) {
   .line-item {
     width: 100%; // Based on cols width
     margin-bottom: 1.5em;
@@ -29,7 +29,7 @@
 
 
 
-@media only screen and (min-width: 531px) and (max-width: 1024px) {
+@media only screen and (min-width: 541px) and (max-width: 1024px) {
 
   .line-item {
     display: flex;
