@@ -48,6 +48,38 @@
     }
   }
 
+
+
+
+  /*********************
+  * Table Cell Styling
+  **********************/
+
+  // The first row should have no top border
+  .line-item:first-child() {
+    border-top: none;
+  }
+
+  // The last row should have no bottom border
+  .line-item:nth-last-child() {
+    border-bottom: none;
+  }
+
+  .line-item {
+    // The last field in a row should have no right border
+    .line-item-field:last-child() {
+      border-right: none;
+    }
+  
+    .line-item-field {
+      border-bottom: 1px solid grey;
+      border-right: 1px solid grey;
+    }
+  }
+
+
+  
+
 }
 
 

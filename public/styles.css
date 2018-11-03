@@ -140,6 +140,12 @@ form .form-row:nth-child(odd) {
 @media only screen and (min-width: 481px) and (max-width: 1024px) {
   .ledger-container {
     width: 100%; }
+  .cols, .line-items-container {
+    border-top: 1px solid grey;
+    border-right: 1px solid grey;
+    border-left: 1px solid grey; }
+  .line-items-container {
+    border-bottom: 1px solid grey; }
   .cols {
     display: flex; }
     .cols .header {
@@ -205,7 +211,19 @@ form .form-row:nth-child(odd) {
   .total-field img {
     width: 25px;
     height: 25px;
-    margin-right: .5em; } }
+    margin-right: .5em; }
+  /*********************
+  * Table Cell Styling
+  **********************/
+  .line-item:first-child() {
+    border-top: none; }
+  .line-item:nth-last-child() {
+    border-bottom: none; }
+  .line-item .line-item-field:last-child() {
+    border-right: none; }
+  .line-item .line-item-field {
+    border-bottom: 1px solid grey;
+    border-right: 1px solid grey; } }
 
 /********************************
 * Base Styles

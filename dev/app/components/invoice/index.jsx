@@ -70,13 +70,13 @@ const Invoice = ({ invoiceItems }) => (
             ? checkForLineItems(mockData)
             : checkForLineItems(invoiceItems)}
         </div>
-
-        <button className="additem-btn">
-          <Link to="/additem">
-            <span>Add Item</span>
-          </Link>
-        </button>
       </div>
+
+      <button className="additem-btn">
+        <Link to="/additem">
+          <span>Add Item</span>
+        </Link>
+      </button>
 
       <Total />
     </div>

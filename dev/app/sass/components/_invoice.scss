@@ -50,6 +50,16 @@
     width: 100%;
   }
 
+  .cols, .line-items-container {
+    border-top: 1px solid grey;
+    border-right: 1px solid grey;
+    border-left: 1px solid grey;
+  }
+
+  .line-items-container {
+    border-bottom: 1px solid grey;
+  }
+
   .cols {
     display: flex;
     .header {
