@@ -147,7 +147,8 @@ form .form-row:nth-child(odd) {
     border-top: 1px solid grey;
     border-right: 1px solid grey;
     border-bottom: 1px solid grey;
-    border-left: 1px solid grey; }
+    border-left: 1px solid grey;
+    font-size: 1.5em; }
   .header {
     border-top: none;
     border-right: 1px solid grey;
@@ -156,7 +157,8 @@ form .form-row:nth-child(odd) {
   .cols {
     display: flex; }
     .cols .header {
-      width: 25%; } }
+      width: 25%; }
+  /**** End Table Styling ****/ }
 
 /********************************
 * Base Styles
