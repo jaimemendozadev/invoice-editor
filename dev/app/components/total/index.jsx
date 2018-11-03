@@ -4,12 +4,12 @@ import PropTypes from "prop-types";
 
 const mockData = {
   taxPercentage: 5,
-  subtotal: "5,678,908,678,678,908,678,908, 5,678,908,678,678,908,678,908.98",
+  subtotal: "5,678,908.98",
   salesTax: "2.60",
-  total: "5,678,908,678,678,908,678,908,5,678,908,678,678,908,678,908.58"
+  total: "5,678,908.98.58"
 };
 
-const devEnvironment = false;
+const devEnvironment = true;
 
 const Total = ({ subtotal, salesTax, taxPercentage, total }) => (
   <div className="total">

@@ -39,11 +39,15 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  overflow: scroll;
+  
  
   .total-figures {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    
+    
 
     div:nth-child(1) {
       text-overflow: ellipsis;

@@ -176,7 +176,8 @@ form .form-row:nth-child(odd) {
   border-radius: 10px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  overflow: scroll; }
   .total .total-figures {
     display: flex;
     flex-direction: column;
