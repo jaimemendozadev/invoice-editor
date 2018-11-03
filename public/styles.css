@@ -48,6 +48,9 @@ body {
   width: 70%;
   text-align: center; }
 
+/********************************
+* Media Query Styles
+*********************************/
 @media only screen and (max-width: 480px) {
   .ledger-container {
     display: flex;
@@ -81,13 +84,28 @@ body {
       width: 50%;
       height: 70px;
       border-radius: 10px;
-      font-size: 1.5em; }
-      .ledger-container .additem-btn a:link,
-      .ledger-container .additem-btn a:visited,
-      .ledger-container .additem-btn a:hover,
-      .ledger-container .additem-btn a:active {
-        text-decoration: none;
-        color: black; } }
+      font-size: 1.5em; } }
+
+/********************************
+* Base Styles
+*********************************/
+.cols {
+  color: white; }
+  .cols div:nth-child(odd) {
+    background-color: #49C39E; }
+  .cols div:nth-child(even) {
+    background-color: #80D2DE; }
+
+.additem-btn {
+  background-color: #E51670;
+  border: 1px solid #E51670; }
+  .additem-btn span {
+    color: white; }
+  .additem-btn a:link,
+  .additem-btn a:visited,
+  .additem-btn a:hover,
+  .additem-btn a:active {
+    text-decoration: none; }
 
 @media only screen and (max-width: 480px) {
   .line-item {
@@ -104,9 +122,26 @@ body {
     align-items: center;
     padding-left: .5em; } }
 
+@media only screen and (max-width: 480px) {
+  .total {
+    width: 60%;
+    padding: 1em;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5em; }
+  .total-labels div {
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 1em; }
+  .total-figures div {
+    margin-bottom: 1em; } }
+
 .total {
-  width: 80%;
-  border: 1px solid green;
+  width: 60%;
+  border: 2px solid grey;
+  padding: 1em;
+  border-radius: 10px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between; }

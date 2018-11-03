@@ -1,13 +1,45 @@
+@media only screen and (max-width: 480px) {
+
+  .total {
+    width: 60%;
+    padding: 1em;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5em;
+    
+    
+  }
+  
+  .total-labels {
+    
+    div {
+      font-weight: bold;
+      text-decoration: underline;
+      margin-bottom: 1em;
+    }
+  }
+
+  .total-figures {
+    div {
+  
+      margin-bottom: 1em;
+    }
+  }
+}
+
+
 .total {
-  width: 80%;
-  border: 1px solid green;
+  width: 60%;
+  border: 2px solid grey;
+  padding: 1em;
+  border-radius: 10px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  
+ 
   .total-figures {
     display: flex;
-
     flex-direction: column;
     align-items: flex-end;
   }

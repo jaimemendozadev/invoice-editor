@@ -72,7 +72,9 @@ const Invoice = ({ invoiceItems }) => (
         </div>
 
         <button className="additem-btn">
-          <Link to="/additem">Add Item</Link>
+          <Link to="/additem">
+            <span>Add Item</span>
+          </Link>
         </button>
       </div>
 
