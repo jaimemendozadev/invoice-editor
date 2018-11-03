@@ -62,7 +62,7 @@ const Invoice = ({ invoiceItems }) => (
           <div className="header">Item</div>
           <div className="header">Qty</div>
           <div className="header">Price</div>
-          <div className="header">Total</div>
+          <div className="header last-header">Total</div>
         </div>
 
         <div className="line-items-container">

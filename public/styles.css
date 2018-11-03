@@ -159,6 +159,8 @@ form .form-row:nth-child(odd) {
     .cols .header {
       width: 25%;
       padding: 10px; }
+    .cols .last-header {
+      border-right: none; }
   /**** End Table Styling ****/ }
 
 /********************************
@@ -189,6 +191,16 @@ form .form-row:nth-child(odd) {
   .additem-btn a:active {
     text-decoration: none; }
 
+/********
+* Notes
+**********
+
+Need to add extra class to last .header
+and wrap it in .cols container to give
+higher specifity & override setBorder 
+mixin styling
+
+**********/
 /********************************
 * Media Query Styles
 *********************************/

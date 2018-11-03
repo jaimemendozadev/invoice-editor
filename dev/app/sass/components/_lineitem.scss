@@ -2,6 +2,8 @@
 * Media Query Styles
 *********************************/
 
+
+// Mobile
 @media only screen and (max-width: 540px) {
   .line-item {
     width: 100%; // Based on cols width
@@ -28,7 +30,7 @@
 }
 
 
-
+// Tablet Landscape
 @media only screen and (min-width: 541px) and (max-width: 1024px) {
 
   .line-item {

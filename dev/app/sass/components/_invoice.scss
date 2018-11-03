@@ -2,6 +2,7 @@
 * Media Query Styles
 *********************************/
 
+// Mobile
 @media only screen and (max-width: 540px) {
 
   .ledger-container {
@@ -56,21 +57,28 @@
   * Table Styling
   **********************/
 
+  // Put a border around the entire Table
   .ledger-container {
     @include setBorder(grey, grey, grey, grey);
     font-size: 1.5em;
   }
 
-
   .header {
     @include setBorder(none, grey, grey, none);
   }
+
+  
 
   .cols {
     display: flex;
     .header {
       width: 25%;
       padding: 10px;
+    }
+    
+    // See note below
+    .last-header {
+      border-right: none;
     }
   }
 
@@ -115,3 +123,21 @@
 .additem-btn {
   @include routerBtnBaseStyle;
 }
+
+
+
+
+
+
+
+
+/********
+* Notes
+**********
+
+Need to add extra class to last .header
+and wrap it in .cols container to give
+higher specifity & override setBorder 
+mixin styling
+
+**********/
