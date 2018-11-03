@@ -51,15 +51,34 @@
     width: 100%;
   }
 
-  .cols, .line-items-container {
-    border-top: 1px solid grey;
-    border-right: 1px solid grey;
-    border-left: 1px solid grey;
+  // .cols, .line-items-container {
+  //   border-top: 1px solid grey;
+  //   border-right: 1px solid grey;
+  //   border-left: 1px solid grey;
+  // }
+
+  // .line-items-container {
+  //   border-bottom: 1px solid grey;
+  // }
+
+
+  /*********************
+  * Table Styling
+  **********************/
+
+
+  .ledger-container {
+    @include setBorder(grey, grey, grey, grey)
   }
 
-  .line-items-container {
-    border-bottom: 1px solid grey;
+  .cols {
+    .header {
+      @include setBorder(none, grey, grey, grey);
+  
+    }
   }
+
+
 
   .cols {
     display: flex;

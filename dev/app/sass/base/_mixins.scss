@@ -30,3 +30,11 @@
     text-decoration: none;
   }
 }
+
+
+@mixin setBorder($top: none, $right: none, $bottom: none, $left: none) {
+  border-top: if($top != none, 1px solid $top, none);
+  border-right: if($right != none, 1px solid $right, none);
+  border-bottom: if($bottom != none, 1px solid $bottom, none);
+  border-left: if($left != none, 1px solid $left, none);
+}
