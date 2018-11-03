@@ -2,18 +2,29 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
+const mockData = {
+  taxPercentage: 5,
+  subtotal: "51.98",
+  salesTax: "2.60",
+  total: "54.58"
+};
+
+const devEnvironment = true;
+
 const Total = ({ subtotal, salesTax, taxPercentage, total }) => (
   <div className="total">
     <div className="total-labels">
       <div>Subtotal</div>
-      <div>{`Tax(${taxPercentage}%)`}</div>
+      <div>{`Tax(${
+        devEnvironment ? mockData.taxPercentage : taxPercentage
+      }%)`}</div>
       <div>Total</div>
     </div>
 
     <div className="total-figures">
-      <div>{`$${subtotal}`}</div>
-      <div>{`$${salesTax}`}</div>
-      <div>{`$${total}`}</div>
+      <div>{`$${devEnvironment ? mockData.subtotal : subtotal}`}</div>
+      <div>{`$${devEnvironment ? mockData.salesTax : salesTax}`}</div>
+      <div>{`$${devEnvironment ? mockData.total : total}`}</div>
     </div>
   </div>
 );
