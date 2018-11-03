@@ -74,3 +74,8 @@ typings/
 
 # FuseBox cache
 .fusebox/
+
+# Public Folder
+public/*.png 
+public/*.css
+public/*.js

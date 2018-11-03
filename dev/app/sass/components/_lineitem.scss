@@ -23,6 +23,17 @@
 
 
 
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+
+  .line-item {
+    display: flex;
+  }
+  .line-item-field {
+    width: 25%;
+  }
+
+}
+
 
 
 
@@ -33,6 +44,15 @@
 .line-item {
   color: white;
 }
+
+.total-field {
+  img {
+    width: 40px;
+    height: 40px;
+    margin-right: .5em;
+  }
+}
+
 
 
 .line-item-field:nth-child(1) {
