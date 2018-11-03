@@ -6,15 +6,22 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  .create-item-btn {
+    @include setDimensions(50%, 60px);
+    border-radius: 10px;
+    font-size: 1.5em;
+  }
 }
 
 
-.add-item-btn {
-  height: 50px;
+.create-item-btn {
   font-size: 1.5em;
   border-radius: 10px;
-  border: 1px solid grey;
   margin-bottom: 1em;
+  background-color: #E51670;
+  border: 1px solid #E51670;
+  color: white;
 }
 
 .error-msg {

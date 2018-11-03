@@ -167,8 +167,8 @@ class AddItem extends Component {
           <div>{`$${total}`}</div>
         </div>
 
-        <button className="add-item-btn" type="submit">
-          Add Line Item
+        <button className="create-item-btn" type="submit">
+          Create Line Item
         </button>
 
         <ErrorMessage errorMsgs={errorMsgs} />
