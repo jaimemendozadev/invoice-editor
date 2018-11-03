@@ -157,7 +157,8 @@ form .form-row:nth-child(odd) {
   .cols {
     display: flex; }
     .cols .header {
-      width: 25%; }
+      width: 25%;
+      padding: 10px; }
   /**** End Table Styling ****/ }
 
 /********************************
@@ -216,16 +217,16 @@ form .form-row:nth-child(odd) {
   .total-field img {
     width: 25px;
     height: 25px;
-    margin-right: .5em; }
-  /*********************
-  * Table Cell Styling
-  **********************/ }
+    margin-right: .5em; } }
 
 /********************************
 * Base Styles
 *********************************/
 .line-item {
   color: white; }
+
+.line-item-field {
+  padding: 10px; }
 
 .line-item-field:nth-child(1) {
   background-color: #49C39E; }
@@ -240,8 +241,6 @@ form .form-row:nth-child(odd) {
   background-color: #D40E0D;
   display: flex;
   justify-content: space-between; }
-  .line-item-field:nth-child(4) span {
-    padding-right: 1em; }
 
 @media only screen and (max-width: 540px) {
   .total {
