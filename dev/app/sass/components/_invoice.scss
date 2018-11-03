@@ -8,14 +8,13 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    border: 5px solid purple;
     margin-bottom: 2em;
 
     .cols {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 80%;
+      width: 90%;
       margin-bottom: 1.5em;
   
       .header {
@@ -27,21 +26,23 @@
     }
 
     .line-items-container {
-      width: 80%;
+      width: 90%;
       min-height: 20vh;
       margin: 1em 0;
-      border: 1px solid gold;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-    }
-
-    .additem-btn {
-      @include setDimensions(50%, 70px);
-      border-radius: 10px;
-      font-size: 1.5em;
-    }    
+    }   
   }
+
+  .additem-btn {
+    @include setDimensions(220px, 70px); //220px
+    border-radius: 10px;
+    font-size: 1.5em;
+    display: block;
+    margin: 0 auto 1.5em;
+
+  } 
 }
 
 

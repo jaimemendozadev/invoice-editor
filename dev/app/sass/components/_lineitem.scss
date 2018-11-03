@@ -5,14 +5,12 @@
 @media only screen and (max-width: 480px) {
   .line-item {
     width: 100%; // Based on cols width
-    height: 300px;
-    margin-bottom: 1.5em;    
-
-
+    margin-bottom: 1.5em;
+    border: 1px solid grey;    
   }
 
   .line-item-field {
-    height: 25%;
+    height: 75px;
     font-size: 1.5em;
     overflow: scroll; // Prevents long text from breaking layout
     display: flex;
@@ -78,7 +76,7 @@
   }
 
 
-  
+
 
 }
 
