@@ -50,7 +50,7 @@ const checkForLineItems = invoiceItems => {
     return renderLineItems(invoiceItems, invoiceItemKeys);
   }
 
-  return "You have no Line Items";
+  return <div className="default-msg">You Have No Line Items</div>;
 };
 
 const Invoice = ({ invoiceItems }) => (

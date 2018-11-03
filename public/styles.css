@@ -59,7 +59,6 @@ body {
     border: 5px solid purple;
     margin-bottom: 2em; }
     .ledger-container .cols {
-      border: 1px solid pink;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -75,6 +74,7 @@ body {
         font-size: 2em; }
     .ledger-container .line-items-container {
       width: 80%;
+      min-height: 20vh;
       margin: 1em 0;
       border: 1px solid gold;
       display: flex;
@@ -95,6 +95,9 @@ body {
     background-color: #49C39E; }
   .cols div:nth-child(even) {
     background-color: #80D2DE; }
+
+.default-msg {
+  font-size: 2em; }
 
 .additem-btn {
   background-color: #E51670;
@@ -124,7 +127,7 @@ body {
 
 @media only screen and (max-width: 480px) {
   .total {
-    width: 60%;
+    width: 85%;
     padding: 1em;
     margin: 0 auto;
     display: flex;
@@ -134,11 +137,12 @@ body {
     font-weight: bold;
     text-decoration: underline;
     margin-bottom: 1em; }
+  .total-figures span.elip {
+    text-overflow: ellipsis; }
   .total-figures div {
     margin-bottom: 1em; } }
 
 .total {
-  width: 60%;
   border: 2px solid grey;
   padding: 1em;
   border-radius: 10px;
@@ -149,4 +153,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end; }
+    .total .total-figures div:nth-child(1) {
+      text-overflow: ellipsis; }
 

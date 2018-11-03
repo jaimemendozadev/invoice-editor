@@ -4,20 +4,20 @@ import PropTypes from "prop-types";
 
 const mockData = {
   taxPercentage: 5,
-  subtotal: "51.98",
+  subtotal: "5,678,908,678,678,908,678,908, 5,678,908,678,678,908,678,908.98",
   salesTax: "2.60",
-  total: "54.58"
+  total: "5,678,908,678,678,908,678,908,5,678,908,678,678,908,678,908.58"
 };
 
-const devEnvironment = true;
+const devEnvironment = false;
 
 const Total = ({ subtotal, salesTax, taxPercentage, total }) => (
   <div className="total">
     <div className="total-labels">
       <div>Subtotal</div>
-      <div>{`Tax(${
-        devEnvironment ? mockData.taxPercentage : taxPercentage
-      }%)`}</div>
+      <div>
+        {`Tax(${devEnvironment ? mockData.taxPercentage : taxPercentage}%)`}
+      </div>
       <div>Total</div>
     </div>
 
