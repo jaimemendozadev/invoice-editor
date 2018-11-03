@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import FormRow from "../formrow";
 import ErrorMessage from "../errormessage";
 import { addLineItem } from "../../services/redux/actions";
@@ -167,9 +168,16 @@ class AddItem extends Component {
           <div>{`$${total}`}</div>
         </div>
 
-        <button className="create-item-btn" type="submit">
-          Create Line Item
-        </button>
+        <div className="add-item-btn-container">
+          <button className="create-item-btn" type="submit">
+            Create Item
+          </button>
+          <button className="back-btn">
+            <Link to="/">
+              <span>Back to Invoice</span>
+            </Link>
+          </button>
+        </div>
 
         <ErrorMessage errorMsgs={errorMsgs} />
       </form>

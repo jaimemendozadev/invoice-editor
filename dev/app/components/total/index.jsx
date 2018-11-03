@@ -9,7 +9,7 @@ const mockData = {
   total: "5,678,908.98.58"
 };
 
-const devEnvironment = true;
+const devEnvironment = false;
 
 const Total = ({ subtotal, salesTax, taxPercentage, total }) => (
   <div className="total">

@@ -14,3 +14,19 @@
   background-color: $color;
   border: 1px solid $color;
 }
+
+
+@mixin routerBtnBaseStyle {
+  background-color: #E51670;
+  border: 1px solid #E51670;
+  span {
+    color: white;
+  }
+
+  a:link, 
+  a:visited, 
+  a:hover, 
+  a:active {
+    text-decoration: none;
+  }
+}

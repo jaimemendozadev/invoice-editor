@@ -1,3 +1,7 @@
+/********************************
+* Media Query Styles
+*********************************/
+
 @media only screen and (max-width: 480px) {
   form {
     border: 1px solid salmon;
@@ -7,22 +11,37 @@
     justify-content: center;
   }
 
-  .create-item-btn {
-    @include setDimensions(50%, 60px);
+  .create-item-btn, .back-btn {
+    @include setDimensions(250px, 60px);
     border-radius: 10px;
     font-size: 1.5em;
+    margin-right: 5px;
+  }
+
+  .add-item-btn-container {
+    width: 80%; // Same width as FormRow in Mobile view
   }
 }
 
 
+
+
+/********************************
+* Base Styles
+*********************************/
+
 .create-item-btn {
   font-size: 1.5em;
   border-radius: 10px;
-  margin-bottom: 1em;
   background-color: #E51670;
   border: 1px solid #E51670;
   color: white;
 }
+
+.back-btn {
+  @include routerBtnBaseStyle;
+}
+
 
 .error-msg {
   color: red;
@@ -32,5 +51,11 @@
   box-shadow: 2px 2px 10px red;
   width: 70%;
   text-align: center;
+}
+
+.add-item-btn-container {
+  display: flex;
+  align-items: center;
+  margin: 2em 0;
 }
 
