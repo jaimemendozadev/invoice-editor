@@ -50,4 +50,11 @@
 
 .line-item-field:nth-child(4) {
   @include setFieldBGColor(#D40E0D);
+  display: flex;
+  justify-content: space-between;
+
+  span {
+   
+    padding-right: 1em;
+  }
 }

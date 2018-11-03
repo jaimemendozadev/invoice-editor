@@ -205,7 +205,11 @@ form .form-row:nth-child(odd) {
 
 .line-item-field:nth-child(4) {
   background-color: #D40E0D;
-  border: 1px solid #D40E0D; }
+  border: 1px solid #D40E0D;
+  display: flex;
+  justify-content: space-between; }
+  .line-item-field:nth-child(4) span {
+    padding-right: 1em; }
 
 @media only screen and (max-width: 480px) {
   .total {
