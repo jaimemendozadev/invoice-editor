@@ -20,7 +20,7 @@
   
       .header {
         @include setDimensions(70%, 70px);
-        border: 1px solid grey;
+        // border: 1px solid grey; // Might add back
         @include flexCenter;
         font-size: 2em;
       }
@@ -53,12 +53,22 @@
 
 .cols {
   color: white;
-  div:nth-child(odd) {
-    background-color: #49C39E;
+
+  div:nth-child(1) {
+    @include setFieldBGColor(#49C39E);
   }
 
-  div:nth-child(even) {
-    background-color: #80D2DE;
+  div:nth-child(2) {
+    @include setFieldBGColor(#80D2DE);
+    
+  }
+
+  div:nth-child(3) {
+    @include setFieldBGColor(#EBB424);
+    
+  }
+  div:nth-child(4) {
+    @include setFieldBGColor(#D40E0D);
   }
 }
 

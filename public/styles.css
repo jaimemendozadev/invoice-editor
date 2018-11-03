@@ -95,7 +95,6 @@ form .form-row:nth-child(odd) {
       .ledger-container .cols .header {
         width: 70%;
         height: 70px;
-        border: 1px solid grey;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -119,10 +118,18 @@ form .form-row:nth-child(odd) {
 *********************************/
 .cols {
   color: white; }
-  .cols div:nth-child(odd) {
-    background-color: #49C39E; }
-  .cols div:nth-child(even) {
-    background-color: #80D2DE; }
+  .cols div:nth-child(1) {
+    background-color: #49C39E;
+    border: 1px solid #49C39E; }
+  .cols div:nth-child(2) {
+    background-color: #80D2DE;
+    border: 1px solid #80D2DE; }
+  .cols div:nth-child(3) {
+    background-color: #EBB424;
+    border: 1px solid #EBB424; }
+  .cols div:nth-child(4) {
+    background-color: #D40E0D;
+    border: 1px solid #D40E0D; }
 
 .default-msg {
   font-size: 2em; }
