@@ -1,8 +1,11 @@
+/********************************
+* Media Query Styles
+*********************************/
+
 @media only screen and (max-width: 480px) {
   .line-item {
     width: 100%; // Based on cols width
     height: 300px;
-    border: 1px solid #ff5bb5;
     margin-bottom: 1.5em;    
 
 
@@ -10,13 +13,41 @@
 
   .line-item-field {
     height: 25%;
-    border: 1px solid #87ffe7;
     font-size: 1.5em;
     overflow: scroll; // Prevents long text from breaking layout
     display: flex;
     align-items: center;
     padding-left: .5em;
-    
-    
   }
+}
+
+
+
+
+
+
+/********************************
+* Base Styles
+*********************************/
+
+.line-item {
+  color: white;
+}
+
+
+.line-item-field:nth-child(1) {
+  @include setFieldBGColor(#49C39E);  
+}
+
+.line-item-field:nth-child(2) {
+  @include setFieldBGColor(#80D2DE);  
+}
+
+.line-item-field:nth-child(3) {
+  @include setFieldBGColor(#EBB424);
+  
+}
+
+.line-item-field:nth-child(4) {
+  @include setFieldBGColor(#D40E0D);
 }
