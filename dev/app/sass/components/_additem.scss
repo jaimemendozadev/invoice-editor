@@ -2,6 +2,8 @@
 * Media Query Styles
 *********************************/
 
+
+// Mobile
 @media only screen and (max-width: 540px) {
   form {
     border: 1px solid salmon;
@@ -23,7 +25,15 @@
   }
 }
 
+// Tablet
+@media only screen and (min-width: 541px) and (max-width: 1024px) {
+  form {
+    width: 75%;
+    margin: 0 auto;
+    border: 1px solid salmon;
+  }
 
+}
 
 
 /********************************
