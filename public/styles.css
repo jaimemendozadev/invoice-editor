@@ -191,24 +191,27 @@ form .form-row:nth-child(odd) {
     overflow: scroll;
     display: flex;
     align-items: center;
-    padding-left: .5em; } }
+    padding-left: .5em; }
+  .total-field img {
+    width: 40px;
+    height: 40px;
+    margin-right: .5em; } }
 
 @media only screen and (min-width: 481px) and (max-width: 1024px) {
   .line-item {
     display: flex; }
   .line-item-field {
-    width: 25%; } }
+    width: 25%; }
+  .total-field img {
+    width: 25px;
+    height: 25px;
+    margin-right: .5em; } }
 
 /********************************
 * Base Styles
 *********************************/
 .line-item {
   color: white; }
-
-.total-field img {
-  width: 40px;
-  height: 40px;
-  margin-right: .5em; }
 
 .line-item-field:nth-child(1) {
   background-color: #49C39E;

@@ -19,6 +19,14 @@
     align-items: center;
     padding-left: .5em;
   }
+
+  .total-field {
+    img {
+      width: 40px;
+      height: 40px;
+      margin-right: .5em;
+    }
+  }
 }
 
 
@@ -30,6 +38,14 @@
   }
   .line-item-field {
     width: 25%;
+  }
+
+  .total-field {
+    img {
+      width: 25px;
+      height: 25px;
+      margin-right: .5em;
+    }
   }
 
 }
@@ -44,15 +60,6 @@
 .line-item {
   color: white;
 }
-
-.total-field {
-  img {
-    width: 40px;
-    height: 40px;
-    margin-right: .5em;
-  }
-}
-
 
 
 .line-item-field:nth-child(1) {

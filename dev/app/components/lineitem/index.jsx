@@ -1,6 +1,10 @@
 import React from "react";
 import DeleteIcon from "../assets/delete-button.png";
 
+const deleteLineItem = evt => {
+  console.log("do something");
+};
+
 const LineItem = ({ lineItem }) => (
   <div className="line-item">
     <div className="line-item-field item-field">{lineItem.item}</div>
@@ -8,7 +12,11 @@ const LineItem = ({ lineItem }) => (
     <div className="line-item-field price-field">{lineItem.price}</div>
     <div className="line-item-field total-field">
       <div>{lineItem.total}</div>
-      <img src={DeleteIcon} alt="Delete Icon for Line Item" />
+      <img
+        onClick={deleteLineItem}
+        src={DeleteIcon}
+        alt="Delete Icon for Line Item"
+      />
     </div>
   </div>
 );
