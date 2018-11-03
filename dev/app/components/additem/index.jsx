@@ -162,9 +162,9 @@ class AddItem extends Component {
           onChange={evt => this.handleChange(evt, "price")}
         />
 
-        <div className="form-row">
+        <div className="form-row row-total">
           <div className="form-label">Total</div>
-          <div>{total}</div>
+          <div>{`$${total}`}</div>
         </div>
 
         <button className="add-item-btn" type="submit">

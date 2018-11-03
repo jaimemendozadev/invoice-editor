@@ -59,10 +59,13 @@ body {
 .form-label {
   color: white; }
 
-div.form-row:nth-child(even) {
+.row-total {
+  color: white; }
+
+form .form-row:nth-child(even) {
   background-color: #3F0F3F; }
 
-div.form-row:nth-child(odd) {
+form .form-row:nth-child(odd) {
   background-color: #49C39E; }
 
 /********************************
