@@ -53,29 +53,6 @@
     }
   }
 
-
-
-
-  /*********************
-  * Table Styling
-  **********************/
-
-  // Overrides setBorder styling below
-  .line-item {
-    .total-field {
-      border-right: none; 
-    }
-  }
-
-  // Sets top/right border for cell fields
-  .line-item-field {
-    padding: 10px;
-    @include setBorder(none, grey, grey, none);
-  }
-
-
-  /**** End Table Styling ****/
-
 }
 
 
