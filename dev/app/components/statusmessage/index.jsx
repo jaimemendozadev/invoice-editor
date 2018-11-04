@@ -3,8 +3,20 @@ import PropTypes from "prop-types";
 
 const StatusMessage = ({ statusMsg }) => {
   const statusKeys = Object.keys(statusMsg);
+  const keyLen = statusKeys.length;
+  const firstKey = statusKeys[0];
 
-  if (statusKeys.length) {
+  console.log("statusMsg is ", statusMsg);
+
+  if (keyLen === 1 && firstKey === "success") {
+    return (
+      <div key={`${firstKey}-0`} className="success-msg">
+        {statusMsg[firstKey]}
+      </div>
+    );
+  }
+
+  if (keyLen) {
     return statusKeys.map((statusKey, idx) => (
       <div key={`${statusKey}-${idx}`} className="error-msg">
         {statusMsg[statusKey]}

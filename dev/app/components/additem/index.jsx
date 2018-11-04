@@ -22,7 +22,7 @@ class AddItem extends Component {
   }
 
   handleFocus = formVal => {
-    this.setState({ [formVal]: "" });
+    this.setState({ [formVal]: "", statusMsg: {} });
   };
 
   checkNumberInput = (numToCheck, inputType, stateResets) => {
@@ -132,6 +132,8 @@ class AddItem extends Component {
     if (subtotal > prevProps.subtotal) {
       const itemAddedToInvoice = createStatusObject({}, "addToStore");
       console.log("itemAddedToInvoice ", itemAddedToInvoice);
+
+      this.setState(itemAddedToInvoice);
     }
   };
 

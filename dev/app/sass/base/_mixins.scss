@@ -40,3 +40,13 @@
   font-size: 1.5em;
   display: block;
 }
+
+@mixin statusMsgStyling($color) {
+  color: $color;
+  font-size: 1.5em;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 2px 2px 10px $color;
+  width: 70%;
+  text-align: center;
+}

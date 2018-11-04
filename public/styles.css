@@ -93,7 +93,7 @@ mixin styling
       border-radius: 10px;
       font-size: 1.5em;
       margin-right: 5px; }
-  .error-msg {
+  .error-msg, .success-msg {
     order: 3;
     margin: 1em auto 0 auto; } }
 
@@ -101,7 +101,7 @@ mixin styling
   form {
     margin: 0 auto;
     width: 1200px; }
-  .error-msg {
+  .error-msg, .success-msg {
     margin: 2em auto 0 auto; } }
 
 /********************************
@@ -137,6 +137,15 @@ mixin styling
   border-radius: 10px;
   padding: 10px;
   box-shadow: 2px 2px 10px red;
+  width: 70%;
+  text-align: center; }
+
+.success-msg {
+  color: #3AAE84;
+  font-size: 1.5em;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 2px 2px 10px #3AAE84;
   width: 70%;
   text-align: center; }
 
