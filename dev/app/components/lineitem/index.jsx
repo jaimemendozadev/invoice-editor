@@ -2,24 +2,37 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import DeleteIcon from "../assets/delete-button.png";
+import { prepGrandTotal } from "../additem/utils";
 import { updateInvoice } from "../../services/redux/actions";
 
-const deleteLineItem = (lineItemID, invoiceItems, subtotal, callback) => {
-
-  const price = invoiceItems.price;
+const deleteLineItem = (
+  lineItemID,
+  invoiceItems,
+  subtotal,
+  taxPercentage,
+  callback
+) => {
+  // Get the deleted item's total
+  const itemTotal = invoiceItems[lineItemID].total;
 
   // Delete the item from the invoiceItems
   delete invoiceItems[lineItemID];
 
-  // Get the updated subtotal
-  const updatedSubtotal;
+  // Get the updated total state for Redux
+  const updatedTotalReducer = prepGrandTotal(
+    itemTotal,
+    subtotal,
+    taxPercentage,
+    true
+  );
 
   const payload = {
     invoice: invoiceItems,
-    total: {subtotal: },
-  }
+    total: updatedTotalReducer
+  };
 
-  callback(invoiceItems);
+  // Update Redux store
+  callback(payload);
 };
 
 // item, price, qty, total
@@ -28,6 +41,7 @@ const LineItem = ({
   lineItem,
   invoiceItems,
   subtotal,
+  taxPercentage,
   UpdateInvoice
 }) => (
   <div className="line-item">
@@ -38,7 +52,13 @@ const LineItem = ({
       <div>{lineItem.total}</div>
       <img
         onClick={() =>
-          deleteLineItem(lineItemID, invoiceItems, subtotal, UpdateInvoice)
+          deleteLineItem(
+            lineItemID,
+            invoiceItems,
+            subtotal,
+            taxPercentage,
+            UpdateInvoice
+          )
         }
         src={DeleteIcon}
         alt="Delete Icon for Line Item"
@@ -65,11 +85,13 @@ LineItem.propTypes = {
   }).isRequired,
   lineItemID: PropTypes.string.isRequired,
   subtotal: PropTypes.string.isRequired,
+  taxPercentage: PropTypes.number.isRequired,
   UpdateInvoice: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ total }) => ({
-  subtotal: subtotal.total
+  subtotal: total.subtotal,
+  taxPercentage: total.taxPercentage
 });
 export default connect(
   mapStateToProps,

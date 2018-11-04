@@ -74,10 +74,19 @@ export const checkForFormErrors = (qty, price, item) => {
   return false;
 };
 
-export const prepGrandTotal = (itemTotal, currentSubtotal, taxPercentage) => {
+export const prepGrandTotal = (
+  itemTotal,
+  currentSubtotal,
+  taxPercentage,
+  decrement = false
+) => {
   // Returned strings get convertedToDecimals when passed as args
 
-  const subTotal = calculateUpdatedSubtotal(itemTotal, currentSubtotal);
+  const subTotal = calculateUpdatedSubtotal(
+    itemTotal,
+    currentSubtotal,
+    decrement
+  );
 
   const salesTax = calculateSalesTax(
     taxPercentage,

@@ -12,12 +12,18 @@ export const calculateTotal = (qty, price) => {
   return result.toFixed(2); // Returns string total with cents
 };
 
-export const calculateUpdatedSubtotal = (newItemTotal, currentSubTotal) => {
-  // Take Redux currentSubTotal and newItemTotal
+export const calculateUpdatedSubtotal = (
+  currItemTotal,
+  currentSubTotal,
+  decrement = false
+) => {
+  // Take Redux currentSubTotal and currItemTotal
   // Convert inputs to decimals
 
   const baseSubtotal =
-    convertToDecimals(currentSubTotal) + convertToDecimals(newItemTotal);
+    decrement === true
+      ? convertToDecimals(currentSubTotal) - convertToDecimals(currItemTotal)
+      : convertToDecimals(currentSubTotal) + convertToDecimals(currItemTotal);
 
   // Return string total with cents
   return baseSubtotal.toFixed(2);
