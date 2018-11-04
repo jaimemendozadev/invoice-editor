@@ -35,7 +35,6 @@ const deleteLineItem = (
   callback(payload);
 };
 
-// item, price, qty, total
 const LineItem = ({
   lineItemID,
   lineItem,

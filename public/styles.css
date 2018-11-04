@@ -251,6 +251,9 @@ form .form-row:nth-child(odd) {
 /********************************
 * Base Styles
 *********************************/
+.default-msg {
+  margin-left: 10px; }
+
 .cols {
   color: white; }
   .cols div:nth-child(1) {
