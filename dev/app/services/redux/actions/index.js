@@ -5,7 +5,7 @@ export const addLineItem = payload => ({
   payload
 });
 
-export const deleteLineItem = payload => ({
+export const updateInvoice = payload => ({
   type: DELETE_LINE_ITEM,
   payload
 });
