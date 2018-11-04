@@ -5,8 +5,13 @@
 
 // Mobile
 @media only screen and (max-width: 730px) {
+  .form-container {
+    h1 {
+      text-align: center;
+    }
+  }
+
   form {
-    border: 1px solid salmon;
     min-height: 110vh;
     display: flex;
     flex-wrap: wrap;

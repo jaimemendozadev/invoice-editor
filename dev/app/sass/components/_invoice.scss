@@ -5,6 +5,12 @@
 // Mobile
 @media only screen and (max-width: 540px) {
 
+  .main-container {
+    h1 {
+      text-align: center;
+    }
+  }
+
   .ledger-container {
     display: flex;
     justify-content: center;

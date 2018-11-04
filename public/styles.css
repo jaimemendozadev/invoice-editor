@@ -50,8 +50,9 @@ mixin styling
 * Media Query Styles
 *********************************/
 @media only screen and (max-width: 730px) {
+  .form-container h1 {
+    text-align: center; }
   form {
-    border: 1px solid salmon;
     min-height: 110vh;
     display: flex;
     flex-wrap: wrap;
@@ -194,6 +195,8 @@ form .form-row:nth-child(odd) {
 * Media Query Styles
 *********************************/
 @media only screen and (max-width: 540px) {
+  .main-container h1 {
+    text-align: center; }
   .ledger-container {
     display: flex;
     justify-content: center;
