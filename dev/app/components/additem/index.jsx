@@ -126,8 +126,17 @@ class AddItem extends Component {
     this.performFinalCheck(AddLineItem);
   };
 
+  componentDidUpdate = prevProps => {
+    const { subtotal } = this.props;
+
+    if (subtotal > prevProps.subtotal) {
+    }
+  };
+
   render() {
     const { item, qty, price, total, errorMsgs } = this.state;
+    const { subtotal } = this.props;
+    console.log("subtotal inside additem is ", subtotal);
 
     return (
       <form onSubmit={this.handleSubmit}>
