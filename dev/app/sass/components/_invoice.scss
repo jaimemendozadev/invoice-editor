@@ -115,3 +115,11 @@
 .additem-btn {
   @include routerBtnBaseStyle;
 }
+
+
+.additem-btn {
+  a:hover, a:active {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
+}

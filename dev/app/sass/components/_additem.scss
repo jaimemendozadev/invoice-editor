@@ -105,10 +105,21 @@
   background-color: #E51670;
   border: 1px solid #E51670;
   color: white;
+
+
+  &:hover, &:active {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
 }
 
 .back-btn {
   @include routerBtnBaseStyle;
+
+  a:active, a:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
 }
 
 

@@ -113,6 +113,9 @@ mixin styling
   background-color: #E51670;
   border: 1px solid #E51670;
   color: white; }
+  .create-item-btn:hover, .create-item-btn:active {
+    text-decoration: underline;
+    text-decoration-color: white; }
 
 .back-btn {
   background-color: #E51670;
@@ -124,6 +127,9 @@ mixin styling
   .back-btn a:hover,
   .back-btn a:active {
     text-decoration: none; }
+  .back-btn a:active, .back-btn a:hover {
+    text-decoration: underline;
+    text-decoration-color: white; }
 
 .error-msg {
   color: red;
@@ -281,6 +287,10 @@ form .form-row:nth-child(odd) {
   .additem-btn a:hover,
   .additem-btn a:active {
     text-decoration: none; }
+
+.additem-btn a:hover, .additem-btn a:active {
+  text-decoration: underline;
+  text-decoration-color: white; }
 
 /********************************
 * Media Query Styles
