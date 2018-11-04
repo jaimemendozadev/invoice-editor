@@ -46,9 +46,9 @@ const LineItem = ({
   <div className="line-item">
     <div className="line-item-field item-field">{lineItem.item}</div>
     <div className="line-item-field qty-field">{lineItem.qty}</div>
-    <div className="line-item-field price-field">{lineItem.price}</div>
+    <div className="line-item-field price-field">{`$${lineItem.price}`}</div>
     <div className="line-item-field total-field">
-      <div>{lineItem.total}</div>
+      <div>{`$${lineItem.total}`}</div>
       <img
         onClick={() =>
           deleteLineItem(
