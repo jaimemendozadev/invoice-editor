@@ -25,13 +25,65 @@
   }
 }
 
-// Tablet
+
 @media only screen and (min-width: 541px) and (max-width: 1024px) {
+  form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    
+
+    h1 {
+      width: 100%;
+    }
+    
+  }  
+
+  .form-container {
+    width: 60%;
+    border: 1px solid blue;
+  }
+
+  .add-item-btn-container {
+    width: 25%;
+    height: 50vh;
+    border: 1px solid goldenrod;
+  }
+}
+
+
+
+
+// Tablet Portrait
+@media only screen and (min-width: 541px) and (max-width: 1024px) and (orientation: portrait)  {
+  /*
   form {
     width: 75%;
     margin: 0 auto;
     border: 1px solid salmon;
   }
+  */
+
+  form {
+    border: 1px solid salmon;
+    min-height: 110vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .create-item-btn, .back-btn {
+    @include setDimensions(250px, 60px);
+    border-radius: 10px;
+    font-size: 1.5em;
+    margin-right: 5px;
+  }
+
+  .add-item-btn-container {
+    width: 80%; // Same width as FormRow in Mobile view
+  }
+
 
 }
 

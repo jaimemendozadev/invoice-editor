@@ -133,39 +133,41 @@ class AddItem extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <h1>Add an Item</h1>
-        <FormRow
-          labelName="Item:"
-          className="longer-input"
-          type="text"
-          value={item}
-          onFocus={() => this.handleFocus("item")}
-          onBlur={() => this.handleBlur("item")}
-          onChange={evt => this.handleChange(evt, "item")}
-        />
+        <div className="form-container">
+          <FormRow
+            labelName="Item:"
+            className="longer-input"
+            type="text"
+            value={item}
+            onFocus={() => this.handleFocus("item")}
+            onBlur={() => this.handleBlur("item")}
+            onChange={evt => this.handleChange(evt, "item")}
+          />
 
-        <FormRow
-          labelName="Quantity:"
-          className="shorter-input"
-          type="text"
-          value={qty}
-          onFocus={() => this.handleFocus("qty")}
-          onBlur={() => this.handleBlur("qty")}
-          onChange={evt => this.handleChange(evt, "qty")}
-        />
+          <FormRow
+            labelName="Quantity:"
+            className="shorter-input"
+            type="text"
+            value={qty}
+            onFocus={() => this.handleFocus("qty")}
+            onBlur={() => this.handleBlur("qty")}
+            onChange={evt => this.handleChange(evt, "qty")}
+          />
 
-        <FormRow
-          labelName="Price:"
-          className="shorter-input"
-          type="text"
-          value={price}
-          onFocus={() => this.handleFocus("price")}
-          onBlur={() => this.handleBlur("price")}
-          onChange={evt => this.handleChange(evt, "price")}
-        />
+          <FormRow
+            labelName="Price:"
+            className="shorter-input"
+            type="text"
+            value={price}
+            onFocus={() => this.handleFocus("price")}
+            onBlur={() => this.handleBlur("price")}
+            onChange={evt => this.handleChange(evt, "price")}
+          />
 
-        <div className="form-row row-total">
-          <div className="form-label">Total</div>
-          <div>{`$${total}`}</div>
+          <div className="form-row row-total">
+            <div className="form-label">Total</div>
+            <div>{`$${total}`}</div>
+          </div>
         </div>
 
         <div className="add-item-btn-container">

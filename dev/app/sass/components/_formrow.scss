@@ -34,8 +34,45 @@
 
 
 
-// Tablet
-@media only screen and (min-width: 541px) and (max-width: 1024px) {
+
+@media only screen and (min-width: 541px) and (max-width: 1024px)  {
+  .form-row {
+    width: 90%;
+    font-size: 1.3em; 
+    height: 12vh;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+
+    input {
+      font-size: 1em;
+      &.longer-input {
+        width: 100%;
+      }
+
+      &.shorter-input {
+        width: 35%;
+      }
+    }
+  }
+
+  .form-label {
+    width: 100%;
+  }
+
+  .row-total {
+    div {
+      width: 100%;
+    }
+  }
+
+}
+
+
+// Tablet Portrait
+@media only screen and (min-width: 541px) and (max-width: 1024px) and (orientation: portrait)  {
+
+  /*
   .form-row {
     font-size: 2em; 
     height: 20vh;
@@ -58,6 +95,34 @@
 
   .form-label {
     width: 100%;
+  }
+  */
+
+  .form-row {
+    font-size: 1.5em; 
+    width: 80%;
+    height: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    padding: 1em;
+
+    .form-label {
+      width: 100%;
+    }
+
+    input {
+      font-size: 1em;
+      &.longer-input {
+        width: 100%;
+      }
+
+      &.shorter-input {
+        width: 35%;
+      }
+    }
   }
 
 }

@@ -67,9 +67,42 @@ mixin styling
 
 @media only screen and (min-width: 541px) and (max-width: 1024px) {
   form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; }
+    form h1 {
+      width: 100%; }
+  .form-container {
+    width: 60%;
+    border: 1px solid blue; }
+  .add-item-btn-container {
+    width: 25%;
+    height: 50vh;
+    border: 1px solid goldenrod; } }
+
+@media only screen and (min-width: 541px) and (max-width: 1024px) and (orientation: portrait) {
+  /*
+  form {
     width: 75%;
     margin: 0 auto;
-    border: 1px solid salmon; } }
+    border: 1px solid salmon;
+  }
+  */
+  form {
+    border: 1px solid salmon;
+    min-height: 110vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+  .create-item-btn, .back-btn {
+    width: 250px;
+    height: 60px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    margin-right: 5px; }
+  .add-item-btn-container {
+    width: 80%; } }
 
 /********************************
 * Base Styles
@@ -131,8 +164,9 @@ mixin styling
 
 @media only screen and (min-width: 541px) and (max-width: 1024px) {
   .form-row {
-    font-size: 2em;
-    height: 20vh;
+    width: 90%;
+    font-size: 1.3em;
+    height: 12vh;
     display: flex;
     flex-wrap: wrap;
     padding: 1em; }
@@ -143,7 +177,54 @@ mixin styling
       .form-row input.shorter-input {
         width: 35%; }
   .form-label {
+    width: 100%; }
+  .row-total div {
     width: 100%; } }
+
+@media only screen and (min-width: 541px) and (max-width: 1024px) and (orientation: portrait) {
+  /*
+  .form-row {
+    font-size: 2em; 
+    height: 20vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+
+    input {
+      font-size: 1em;
+      &.longer-input {
+        width: 100%;
+      }
+
+      &.shorter-input {
+        width: 35%;
+      }
+    }
+  }
+
+  .form-label {
+    width: 100%;
+  }
+  */
+  .form-row {
+    font-size: 1.5em;
+    width: 80%;
+    height: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    padding: 1em; }
+    .form-row .form-label {
+      width: 100%; }
+    .form-row input {
+      font-size: 1em; }
+      .form-row input.longer-input {
+        width: 100%; }
+      .form-row input.shorter-input {
+        width: 35%; } }
 
 /********************************
 * Base Styles
