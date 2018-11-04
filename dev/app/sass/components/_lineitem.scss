@@ -6,7 +6,7 @@
 // Mobile
 @media only screen and (max-width: 540px) {
   .line-item {
-    width: 100%; // Based on cols width
+    width: 100%; 
     margin-bottom: 1.5em;
     border: 1px solid grey;    
   }
@@ -65,9 +65,6 @@
 .line-item {
   color: white;
 }
-
-
-
 
 .line-item-field:nth-child(1) {
   background-color: #49C39E;  

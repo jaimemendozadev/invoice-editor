@@ -20,7 +20,6 @@
   
       .header {
         @include setDimensions(70%, 70px);
-        // border: 1px solid grey; // Might add back
         @include flexCenter;
         font-size: 2em;
       }

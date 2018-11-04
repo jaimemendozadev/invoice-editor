@@ -69,7 +69,7 @@ mixin styling
   .error-msg {
     margin-bottom: 1em; } }
 
-@media only screen and (min-width: 731px) and (max-width: 1024px) {
+@media only screen and (min-width: 731px) {
   form {
     width: 100%;
     display: flex;
@@ -77,12 +77,10 @@ mixin styling
     justify-content: flex-start;
     padding: 1em; }
   .form-container {
-    width: 60%;
-    border: 1px solid blue; }
+    width: 60%; }
   .add-item-btn-container {
     width: 25%;
     height: 40vh;
-    border: 1px solid goldenrod;
     align-self: center;
     display: flex;
     flex-direction: column;
@@ -97,6 +95,13 @@ mixin styling
   .error-msg {
     order: 3;
     margin: 1em auto 0 auto; } }
+
+@media only screen and (min-width: 1251px) {
+  form {
+    margin: 0 auto;
+    width: 1200px; }
+  .error-msg {
+    margin: 2em auto 0 auto; } }
 
 /********************************
 * Base Styles
@@ -151,11 +156,11 @@ mixin styling
       .form-row input.shorter-input {
         width: 35%; } }
 
-@media only screen and (min-width: 731px) and (max-width: 1024px) {
+@media only screen and (min-width: 731px) {
   .form-row {
     width: 90%;
     font-size: 1.3em;
-    height: 10vh;
+    height: 11vh;
     display: flex;
     flex-wrap: wrap;
     padding: 1em; }

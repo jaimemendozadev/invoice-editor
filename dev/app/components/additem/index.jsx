@@ -132,7 +132,6 @@ class AddItem extends Component {
     // console.log("this.state inside AddItem ", this.state);
     return (
       <form onSubmit={this.handleSubmit}>
-        {/* <h1>Add an Item</h1> */}
         <div className="form-container">
           <h1>Add an Item</h1>
           <FormRow
