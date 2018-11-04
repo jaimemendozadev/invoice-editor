@@ -1,1 +1,2 @@
 export const ADD_LINE_ITEM = "ADD_LINE_ITEM";
+export const DELETE_LINE_ITEM = "DELETE_LINE_ITEM";

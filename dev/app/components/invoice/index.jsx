@@ -36,15 +36,22 @@ const mockData = {
   }
 };
 
-const devMode = false;
+const devMode = true;
 
 const renderLineItems = (invoiceItems, invoiceItemKeys) =>
   invoiceItemKeys.map(key => (
-    <LineItem key={key} lineItem={invoiceItems[key]} />
+    <LineItem
+      key={key}
+      lineItemID={key}
+      invoiceItems={invoiceItems}
+      lineItem={invoiceItems[key]}
+    />
   ));
 
 const checkForLineItems = invoiceItems => {
   const invoiceItemKeys = Object.keys(invoiceItems);
+
+  console.log("invoiceItems are ", invoiceItems);
 
   if (invoiceItemKeys.length) {
     return renderLineItems(invoiceItems, invoiceItemKeys);
