@@ -32,12 +32,13 @@ export const statusMessage = {
   item: {
     invalidItem: "Please enter a valid item description."
   },
-
-  addToStore: {}
+  addToStore: {
+    success: "Item successfully added to Invoice Total!"
+  }
 };
 
-export const createErrorObject = (stateResets = {}, errorType) =>
-  Object.assign({}, stateResets, { statusMsg: statusMessage[errorType] });
+export const createStatusObject = (stateResets = {}, msgType) =>
+  Object.assign({}, stateResets, { statusMsg: statusMessage[msgType] });
 
 export const createLineItem = state => {
   const { item, price } = state;
@@ -62,15 +63,15 @@ export const createLineItem = state => {
 
 export const checkForFormErrors = (qty, price, item) => {
   if (item === "Description") {
-    return createErrorObject({}, "item");
+    return createStatusObject({}, "item");
   }
 
   if (parseInt(qty, 10) <= 0) {
-    return createErrorObject({}, "qty");
+    return createStatusObject({}, "qty");
   }
 
   if (parseFloat(price) <= 0) {
-    return createErrorObject({}, "price");
+    return createStatusObject({}, "price");
   }
 
   return false;

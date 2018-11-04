@@ -8,7 +8,7 @@ import { addLineItem } from "../../services/redux/actions";
 import {
   createLineItem,
   defaultState,
-  createErrorObject,
+  createStatusObject,
   checkForFormErrors,
   prepGrandTotal
 } from "./utils";
@@ -29,7 +29,7 @@ class AddItem extends Component {
     const { qty, price } = this.state;
 
     if (Number.isNaN(numToCheck)) {
-      const newResetState = createErrorObject(stateResets, inputType);
+      const newResetState = createStatusObject(stateResets, inputType);
 
       this.setState(newResetState);
     } else {
@@ -129,8 +129,10 @@ class AddItem extends Component {
   componentDidUpdate = prevProps => {
     const { subtotal } = this.props;
 
-    // if (subtotal > prevProps.subtotal) {
-    // }
+    if (subtotal > prevProps.subtotal) {
+      const itemAddedToInvoice = createStatusObject({}, "addToStore");
+      console.log("itemAddedToInvoice ", itemAddedToInvoice);
+    }
   };
 
   render() {
