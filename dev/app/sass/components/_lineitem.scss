@@ -31,9 +31,7 @@
 
 
 // Tablet Landscape
-// @media only screen and (min-width: 541px) and (max-width: 1024px) {
-
-  @media only screen and (min-width: 541px)  {
+@media only screen and (min-width: 541px)  {
   .line-item {
     display: flex;
 
@@ -43,7 +41,7 @@
   }
 
   .line-item-field {
-    width: 25%;    
+    width: 25%;
   }
 
   .total-field {

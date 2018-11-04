@@ -36,7 +36,7 @@ const mockData = {
   }
 };
 
-const devMode = true;
+const devMode = false;
 
 const renderLineItems = (invoiceItems, invoiceItemKeys) =>
   invoiceItemKeys.map(key => (

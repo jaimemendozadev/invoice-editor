@@ -3,7 +3,7 @@
   // except bottom. Bottom border is take 
   // care of by last .line-item's fields
   .ledger-container {
-    @include setBorder(grey, grey, none, grey);
+    @include setBorder(grey, grey, grey, grey);
     font-size: 1.5em;
   }
   
