@@ -8,7 +8,7 @@ body {
   box-sizing: border-box;
   font-family: 'Lato', sans-serif; }
 
-@media only screen and (min-width: 541px) and (max-width: 1024px) {
+@media only screen and (min-width: 541px) {
   .ledger-container {
     border-top: 1px solid grey;
     border-right: 1px solid grey;
@@ -227,7 +227,7 @@ form .form-row:nth-child(odd) {
     display: block;
     margin: 0 auto 1.5em; } }
 
-@media only screen and (min-width: 541px) and (max-width: 1024px) {
+@media only screen and (min-width: 541px) {
   .invoice-container {
     display: flex;
     flex-wrap: wrap;
@@ -242,6 +242,11 @@ form .form-row:nth-child(odd) {
     border-radius: 10px;
     font-size: 1.5em;
     display: block; } }
+
+@media only screen and (min-width: 1250px) {
+  .main-container {
+    width: 1100px;
+    margin: 0 auto; } }
 
 /********************************
 * Base Styles
@@ -291,7 +296,7 @@ form .form-row:nth-child(odd) {
     height: 40px;
     margin-right: .5em; } }
 
-@media only screen and (min-width: 541px) and (max-width: 1024px) {
+@media only screen and (min-width: 541px) {
   .line-item {
     display: flex; }
     .line-item .total-field {
@@ -342,7 +347,13 @@ form .form-row:nth-child(odd) {
 
 @media only screen and (min-width: 541px) and (max-width: 1024px) {
   .total {
-    width: 50%; } }
+    width: 50%;
+    font-size: 1.5em; } }
+
+@media only screen and (min-width: 1025px) {
+  .total {
+    width: 40%;
+    font-size: 1.5em; } }
 
 /********************************
 * Base Styles

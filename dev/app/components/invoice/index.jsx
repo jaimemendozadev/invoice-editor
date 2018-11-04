@@ -54,7 +54,7 @@ const checkForLineItems = invoiceItems => {
 };
 
 const Invoice = ({ invoiceItems }) => (
-  <div>
+  <div className="main-container">
     <h1>Invoice</h1>
     <div className="invoice-container">
       <div className="ledger-container">

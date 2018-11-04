@@ -35,8 +35,16 @@
 @media only screen and (min-width: 541px) and (max-width: 1024px) {
   .total {
     width: 50%;
+    font-size: 1.5em;
   }
 
+}
+
+@media only screen and (min-width: 1025px) {
+  .total {
+    width: 40%;
+    font-size: 1.5em;
+  }
 }
 
 

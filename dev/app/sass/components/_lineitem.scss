@@ -31,8 +31,9 @@
 
 
 // Tablet Landscape
-@media only screen and (min-width: 541px) and (max-width: 1024px) {
+// @media only screen and (min-width: 541px) and (max-width: 1024px) {
 
+  @media only screen and (min-width: 541px)  {
   .line-item {
     display: flex;
 

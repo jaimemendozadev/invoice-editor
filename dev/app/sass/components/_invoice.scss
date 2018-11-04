@@ -43,8 +43,7 @@
 
 // Tablet
 // Table Border styles are in _tableborderstyle.scss
-@media only screen and (min-width: 541px) and (max-width: 1024px) {
-
+@media only screen and (min-width: 541px)  {
   .invoice-container {
     display: flex;
     flex-wrap: wrap;
@@ -66,7 +65,12 @@
 }
 
 
-
+@media only screen and (min-width: 1250px) {
+  .main-container {
+    width: 1100px;
+    margin: 0 auto;
+  }
+}
 
 
 
