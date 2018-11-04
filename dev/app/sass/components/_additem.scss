@@ -4,7 +4,8 @@
 
 
 // Mobile
-@media only screen and (max-width: 540px) {
+// @media only screen and (max-width: 540px) {
+@media only screen and (max-width: 730px) {
   form {
     border: 1px solid salmon;
     min-height: 110vh;
@@ -27,8 +28,8 @@
 
 
 // Tablet 
-@media only screen and (min-width: 541px) and (max-width: 1024px) {
-
+// @media only screen and (min-width: 541px) and (max-width: 1024px) {
+@media only screen and (min-width: 731px) and (max-width: 1024px) {
   form {
     width: 100%;
     display: flex;
@@ -36,9 +37,9 @@
     justify-content: flex-start;
     padding: 1em;
     
-    h1 {
-      width: 100%;
-    }
+    // h1 {
+    //   width: 100%;
+    // }
   }  
 
   .form-container {
@@ -50,6 +51,7 @@
     width: 25%;
     height: 40vh;
     border: 1px solid goldenrod;
+    align-self: center;
 
     display: flex;
     flex-direction: column;

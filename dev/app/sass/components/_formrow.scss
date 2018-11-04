@@ -3,7 +3,8 @@
 *********************************/
 
 // Mobile
-@media only screen and (max-width: 540px) {
+// @media only screen and (max-width: 540px) {
+@media only screen and (max-width: 730px) {
   .form-row {
     font-size: 1.5em; 
     width: 80%;
@@ -35,7 +36,8 @@
 
 
 // Tablet 
-@media only screen and (min-width: 541px) and (max-width: 1024px)  {
+// @media only screen and (min-width: 541px) and (max-width: 1024px)  {
+@media only screen and (min-width: 731px) and (max-width: 1024px) {
   .form-row {
     width: 90%;
     font-size: 1.3em; 

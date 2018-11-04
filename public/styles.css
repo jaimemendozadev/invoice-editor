@@ -49,7 +49,7 @@ mixin styling
 /********************************
 * Media Query Styles
 *********************************/
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 730px) {
   form {
     border: 1px solid salmon;
     min-height: 110vh;
@@ -65,15 +65,13 @@ mixin styling
   .add-item-btn-container {
     width: 80%; } }
 
-@media only screen and (min-width: 541px) and (max-width: 1024px) {
+@media only screen and (min-width: 731px) and (max-width: 1024px) {
   form {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 1em; }
-    form h1 {
-      width: 100%; }
   .form-container {
     width: 60%;
     border: 1px solid blue; }
@@ -81,6 +79,7 @@ mixin styling
     width: 25%;
     height: 40vh;
     border: 1px solid goldenrod;
+    align-self: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around; }
@@ -124,7 +123,7 @@ mixin styling
 /********************************
 * Media Query Styles
 *********************************/
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 730px) {
   .form-row {
     font-size: 1.5em;
     width: 80%;
@@ -144,7 +143,7 @@ mixin styling
       .form-row input.shorter-input {
         width: 35%; } }
 
-@media only screen and (min-width: 541px) and (max-width: 1024px) {
+@media only screen and (min-width: 731px) and (max-width: 1024px) {
   .form-row {
     width: 90%;
     font-size: 1.3em;
