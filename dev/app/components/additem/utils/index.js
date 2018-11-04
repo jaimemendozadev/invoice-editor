@@ -19,10 +19,10 @@ export const defaultState = {
   price: "0.00",
   total: "0.00",
   item: "Description",
-  errorMsgs: {}
+  statusMsg: {}
 };
 
-export const inputErrors = {
+export const statusMessage = {
   qty: {
     invalidQty: "Please enter a valid quantity."
   },
@@ -31,11 +31,13 @@ export const inputErrors = {
   },
   item: {
     invalidItem: "Please enter a valid item description."
-  }
+  },
+
+  addToStore: {}
 };
 
 export const createErrorObject = (stateResets = {}, errorType) =>
-  Object.assign({}, stateResets, { errorMsgs: inputErrors[errorType] });
+  Object.assign({}, stateResets, { statusMsg: statusMessage[errorType] });
 
 export const createLineItem = state => {
   const { item, price } = state;
@@ -45,7 +47,7 @@ export const createLineItem = state => {
   const lineItem = {};
 
   stateKeys.forEach(key => {
-    if (key !== "errorMsgs") {
+    if (key !== "statusMsg") {
       lineItem[key] = state[key];
     }
   });

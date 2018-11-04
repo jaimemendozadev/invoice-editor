@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import FormRow from "../formrow";
-import ErrorMessage from "../errormessage";
+import StatusMessage from "../statusmessage";
 import { addLineItem } from "../../services/redux/actions";
 import {
   createLineItem,
@@ -113,7 +113,7 @@ class AddItem extends Component {
   handleChange = (evt, formVal) => {
     this.setState({
       [formVal]: evt.target.value,
-      errorMsgs: {}
+      statusMsg: {}
     });
   };
 
@@ -129,12 +129,12 @@ class AddItem extends Component {
   componentDidUpdate = prevProps => {
     const { subtotal } = this.props;
 
-    if (subtotal > prevProps.subtotal) {
-    }
+    // if (subtotal > prevProps.subtotal) {
+    // }
   };
 
   render() {
-    const { item, qty, price, total, errorMsgs } = this.state;
+    const { item, qty, price, total, statusMsg } = this.state;
     const { subtotal } = this.props;
     console.log("subtotal inside additem is ", subtotal);
 
@@ -178,7 +178,7 @@ class AddItem extends Component {
           </div>
         </div>
 
-        <ErrorMessage errorMsgs={errorMsgs} />
+        <StatusMessage statusMsg={statusMsg} />
 
         <div className="add-item-btn-container">
           <button className="create-item-btn" type="submit">
