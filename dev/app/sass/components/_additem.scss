@@ -22,8 +22,16 @@
   }
 
   .add-item-btn-container {
-    width: 80%; // Same width as FormRow in Mobile view
+    width: 100%; // Same width as FormRow in Mobile view
+    display: flex;
+    justify-content: center;
+    // margin-bottom: 1em;
   }
+
+  .error-msg {
+    margin-bottom: 1em;
+  }
+
 }
 
 
@@ -37,9 +45,6 @@
     justify-content: flex-start;
     padding: 1em;
     
-    // h1 {
-    //   width: 100%;
-    // }
   }  
 
   .form-container {
@@ -57,13 +62,19 @@
     flex-direction: column;
     justify-content: space-around;
 
+    order: 2;
+
     .create-item-btn, .back-btn {
       @include setDimensions(90%, 60px);
       border-radius: 10px;
       font-size: 1.5em;
       margin-right: 5px;
     }
+  }
 
+  .error-msg {
+    order: 3;
+    margin: 1em auto 0 auto;
 
   }
 }

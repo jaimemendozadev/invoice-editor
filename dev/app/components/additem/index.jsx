@@ -134,7 +134,7 @@ class AddItem extends Component {
       <form onSubmit={this.handleSubmit}>
         {/* <h1>Add an Item</h1> */}
         <div className="form-container">
-            <h1>Add an Item</h1>
+          <h1>Add an Item</h1>
           <FormRow
             labelName="Item:"
             className="longer-input"
@@ -171,6 +171,8 @@ class AddItem extends Component {
           </div>
         </div>
 
+        <ErrorMessage errorMsgs={errorMsgs} />
+
         <div className="add-item-btn-container">
           <button className="create-item-btn" type="submit">
             Create Item
@@ -181,8 +183,6 @@ class AddItem extends Component {
             </Link>
           </button>
         </div>
-
-        <ErrorMessage errorMsgs={errorMsgs} />
       </form>
     );
   }
