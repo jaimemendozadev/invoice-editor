@@ -129,7 +129,6 @@ class AddItem extends Component {
   render() {
     const { item, qty, price, total, errorMsgs } = this.state;
 
-    // console.log("this.state inside AddItem ", this.state);
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="form-container">
@@ -190,15 +189,11 @@ class AddItem extends Component {
 AddItem.propTypes = {
   AddLineItem: PropTypes.func.isRequired,
   taxPercentage: PropTypes.number.isRequired,
-  subtotal: PropTypes.string.isRequired,
-  salesTax: PropTypes.string.isRequired,
-  grand_total: PropTypes.string.isRequired
+  subtotal: PropTypes.string.isRequired
 };
 
 const mapStateToProps = ({ total }) => ({
   subtotal: total.subtotal,
-  salesTax: total.salesTax,
-  grand_total: total.total,
   taxPercentage: total.taxPercentage
 });
 

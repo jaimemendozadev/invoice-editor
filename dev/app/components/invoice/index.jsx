@@ -18,8 +18,6 @@ const renderLineItems = (invoiceItems, invoiceItemKeys) =>
 const checkForLineItems = invoiceItems => {
   const invoiceItemKeys = Object.keys(invoiceItems);
 
-  console.log("invoiceItems are ", invoiceItems);
-
   if (invoiceItemKeys.length) {
     return renderLineItems(invoiceItems, invoiceItemKeys);
   }

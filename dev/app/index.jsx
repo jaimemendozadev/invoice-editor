@@ -6,8 +6,6 @@ import AddItem from "./components/additem";
 import Invoice from "./components/invoice";
 import Styles from "./sass/styles.scss";
 
-console.log("store is ", store);
-
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>
