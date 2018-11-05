@@ -131,7 +131,6 @@ class AddItem extends Component {
 
     if (subtotal > prevProps.subtotal) {
       const itemAddedToInvoice = createStatusObject({}, "addToStore");
-      console.log("itemAddedToInvoice ", itemAddedToInvoice);
 
       this.setState(itemAddedToInvoice);
     }
@@ -140,7 +139,6 @@ class AddItem extends Component {
   render() {
     const { item, qty, price, total, statusMsg } = this.state;
     const { subtotal } = this.props;
-    console.log("subtotal inside additem is ", subtotal);
 
     return (
       <form onSubmit={this.handleSubmit}>

@@ -6,8 +6,6 @@ const StatusMessage = ({ statusMsg }) => {
   const keyLen = statusKeys.length;
   const firstKey = statusKeys[0];
 
-  console.log("statusMsg is ", statusMsg);
-
   if (keyLen === 1 && firstKey === "success") {
     return (
       <div key={`${firstKey}-0`} className="success-msg">
